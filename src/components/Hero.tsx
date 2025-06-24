@@ -16,7 +16,7 @@ export const Hero = () => {
           <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-2xl">
             {/* Replace with your profile image URL */}
             <img
-              src="https://photos.app.goo.gl/YqGTHMmfNmdLRVqr6"
+              src="/saikumar-profile.jpg"
               alt="Profile"
               className="object-cover w-full h-full"
             />
