@@ -4,10 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Upload, Link, File } from "lucide-react";
+import { Upload, Link, File, Edit, Eye } from "lucide-react";
 import { useState } from "react";
 
 export const Certifications = () => {
+  const [isEditMode, setIsEditMode] = useState(false);
   const [certifications, setCertifications] = useState([
     {
       name: "Microsoft Azure AZ-900",
@@ -64,9 +65,19 @@ export const Certifications = () => {
     <section id="certifications" className="py-20 px-4 bg-white/50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            Certifications
-          </h2>
+          <div className="flex justify-center items-center gap-4 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Certifications
+            </h2>
+            <Button
+              onClick={() => setIsEditMode(!isEditMode)}
+              variant="outline"
+              size="sm"
+            >
+              {isEditMode ? <Eye className="w-4 h-4 mr-2" /> : <Edit className="w-4 h-4 mr-2" />}
+              {isEditMode ? "Preview" : "Edit"}
+            </Button>
+          </div>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
         </div>
         
@@ -80,35 +91,39 @@ export const Certifications = () => {
                 <CardTitle className="text-xl text-gray-800">{cert.name}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor={`cert-link-${index}`}>Certificate Link</Label>
-                  <Input
-                    id={`cert-link-${index}`}
-                    type="url"
-                    placeholder="https://example.com/certificate"
-                    value={cert.link}
-                    onChange={(e) => handleLinkChange(index, e.target.value)}
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor={`cert-file-${index}`}>Upload Certificate</Label>
-                  <Input
-                    id={`cert-file-${index}`}
-                    type="file"
-                    accept=".pdf,.jpg,.jpeg,.png"
-                    onChange={(e) => handleFileUpload(index, e.target.files?.[0] || null)}
-                  />
-                </div>
-
-                {(cert.link || cert.file) && (
-                  <Button 
-                    onClick={() => handlePreview(cert)}
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
-                  >
-                    <File className="w-4 h-4 mr-2" />
-                    Preview Certificate
-                  </Button>
+                {isEditMode ? (
+                  <>
+                    <div className="space-y-2">
+                      <Label htmlFor={`cert-link-${index}`}>Certificate Link</Label>
+                      <Input
+                        id={`cert-link-${index}`}
+                        type="url"
+                        placeholder="https://example.com/certificate"
+                        value={cert.link}
+                        onChange={(e) => handleLinkChange(index, e.target.value)}
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor={`cert-file-${index}`}>Upload Certificate</Label>
+                      <Input
+                        id={`cert-file-${index}`}
+                        type="file"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        onChange={(e) => handleFileUpload(index, e.target.files?.[0] || null)}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  (cert.link || cert.file) && (
+                    <Button 
+                      onClick={() => handlePreview(cert)}
+                      className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+                    >
+                      <File className="w-4 h-4 mr-2" />
+                      Preview Certificate
+                    </Button>
+                  )
                 )}
               </CardContent>
             </Card>

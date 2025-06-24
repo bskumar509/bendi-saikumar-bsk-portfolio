@@ -3,12 +3,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Upload, Link, File } from "lucide-react";
+import { Upload, Link, File, Edit, Eye } from "lucide-react";
 import { useState } from "react";
 
 export const About = () => {
   const [resumeLink, setResumeLink] = useState("");
   const [resumeFile, setResumeFile] = useState<File | null>(null);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   const handleResumePreview = () => {
     if (resumeLink) {
@@ -53,45 +54,63 @@ export const About = () => {
 
           <Card className="bg-white/80 backdrop-blur-sm shadow-xl border-0 hover:shadow-2xl transition-shadow duration-300">
             <CardHeader>
-              <CardTitle className="text-2xl text-center text-gray-800">Resume</CardTitle>
+              <div className="flex justify-between items-center">
+                <CardTitle className="text-2xl text-gray-800">Resume</CardTitle>
+                <Button
+                  onClick={() => setIsEditMode(!isEditMode)}
+                  variant="outline"
+                  size="sm"
+                >
+                  {isEditMode ? <Eye className="w-4 h-4 mr-2" /> : <Edit className="w-4 h-4 mr-2" />}
+                  {isEditMode ? "Preview" : "Edit"}
+                </Button>
+              </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="resume-link">Resume Link</Label>
-                <Input
-                  id="resume-link"
-                  type="url"
-                  placeholder="https://drive.google.com/your-resume"
-                  value={resumeLink}
-                  onChange={(e) => setResumeLink(e.target.value)}
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="resume-file">Upload Resume</Label>
-                <Input
-                  id="resume-file"
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  onChange={(e) => setResumeFile(e.target.files?.[0] || null)}
-                />
-              </div>
+              {isEditMode ? (
+                <>
+                  <div className="space-y-2">
+                    <Label htmlFor="resume-link">Resume Link</Label>
+                    <Input
+                      id="resume-link"
+                      type="url"
+                      placeholder="https://drive.google.com/your-resume"
+                      value={resumeLink}
+                      onChange={(e) => setResumeLink(e.target.value)}
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="resume-file">Upload Resume</Label>
+                    <Input
+                      id="resume-file"
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      onChange={(e) => setResumeFile(e.target.files?.[0] || null)}
+                    />
+                  </div>
 
-              {(resumeLink || resumeFile) && (
-                <Button 
-                  onClick={handleResumePreview}
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
-                >
-                  <File className="w-4 h-4 mr-2" />
-                  View Resume
-                </Button>
+                  <div className="text-sm text-gray-600 mt-4">
+                    <p>• Upload your resume in PDF, DOC, or DOCX format</p>
+                    <p>• Or provide a link to your online resume</p>
+                    <p>• Visitors can preview your resume directly</p>
+                  </div>
+                </>
+              ) : (
+                <div className="text-center py-8">
+                  {(resumeLink || resumeFile) ? (
+                    <Button 
+                      onClick={handleResumePreview}
+                      className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+                    >
+                      <File className="w-4 h-4 mr-2" />
+                      View Resume
+                    </Button>
+                  ) : (
+                    <p className="text-gray-500">No resume uploaded yet</p>
+                  )}
+                </div>
               )}
-
-              <div className="text-sm text-gray-600 mt-4">
-                <p>• Upload your resume in PDF, DOC, or DOCX format</p>
-                <p>• Or provide a link to your online resume</p>
-                <p>• Visitors can preview your resume directly</p>
-              </div>
             </CardContent>
           </Card>
         </div>
