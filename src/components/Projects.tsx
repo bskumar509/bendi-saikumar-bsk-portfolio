@@ -4,31 +4,47 @@ import { Badge } from "@/components/ui/badge";
 
 export const Projects = () => {
   const projects = [
-    {
-      title: "Ucoin – Final Year Project",
-      description: "A privacy-preserving cryptocurrency scheme",
-      features: [
-        "Aggregates multiple user transactions to break input-output address links",
-        "Efficiently mixes 50 transactions in 6.3 seconds, outperforming alternatives by 18%",
-        "Focused on speed and transaction anonymity in decentralized systems"
-      ],
-      type: "Final Year Project",
-      color: "from-blue-500 to-purple-500"
-    },
-    {
-      title: "Modern Agriculture Techniques",
-      description: "Community Service Project documenting agricultural practices",
-      features: [
-        "Engaged with farmers to document modern agricultural practices",
-        "Produced comprehensive report to promote awareness",
-        "Focused on adoption of tech-driven farming solutions"
-      ],
-      type: "Community Service",
-      period: "Jan 2023",
-      color: "from-green-500 to-emerald-500"
-    }
-  ];
-
+  {
+    title: "Ucoin – Final Year Project",
+    description: "A privacy-preserving cryptocurrency scheme",
+    features: [
+      "Aggregates multiple user transactions to break input-output address links",
+      "Efficiently mixes 50 transactions in 6.3 seconds, outperforming alternatives by 18%",
+      "Focused on speed and transaction anonymity in decentralized systems"
+    ],
+    type: "Final Year Project",
+    github: "https://github.com/bskumar509/cryptocurrency-project",
+    color: "from-blue-500 to-purple-500"
+  },
+  {
+    title: "Modern Agriculture Techniques",
+    description: "Community Service Project documenting agricultural practices",
+    features: [
+      "Engaged with farmers to document modern agricultural practices",
+      "Produced comprehensive report to promote awareness",
+      "Focused on adoption of tech-driven farming solutions"
+    ],
+    type: "Community Service",
+    period: "Jan 2023",
+    github: "https://github.com/bskumar509/Bendi.Saikumar",
+    color: "from-green-500 to-emerald-500"
+  },
+  {
+    title: "Student Carrer Path",
+    description: " The **"student-career-paths"** is for carrer guide project  ",
+    features: [
+      "Integrated with Lovable for AI-driven edits",
+      "Supports GitHub workflows and cloud IDEs",
+      "Custom domain support and one-click deployment"
+    ],
+    type: "Personal Project",
+    period: "2025",
+    github: "https://github.com/bskumar509/student-career-paths",
+    live: "https://lovable.dev/projects/97b1f49c-e129-4572-bdb7-62782ae8792d",
+    color: "from-indigo-500 to-purple-600"
+  }
+];
+  
   return (
     <section id="projects" className="py-20 px-4 bg-white/50">
       <div className="max-w-6xl mx-auto">
