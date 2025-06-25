@@ -1,37 +1,93 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export const About = () => {
+  const highlights = [
+    {
+      title: "Strong Academic Foundation",
+      description: "B.Tech in Computer Science & Engineering with solid theoretical and practical knowledge"
+    },
+    {
+      title: "Problem-Solving Focus",
+      description: "Passionate about tackling complex technological challenges with innovative solutions"
+    },
+    {
+      title: "Continuous Learning",
+      description: "Committed to staying updated with latest technologies and industry best practices"
+    },
+    {
+      title: "Team Collaboration",
+      description: "Experience working in collaborative environments and cross-functional teams"
+    }
+  ];
+
   return (
-    <section id="about" className="py-20 px-4 bg-gradient-to-br from-emerald-400 via-cyan-500 to-blue-600">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto"></div>
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            A dedicated and enthusiastic Computer Science graduate ready to make an impact in the tech industry
+          </p>
         </div>
-        
-        <Card className="bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-red-500/20 backdrop-blur-sm shadow-2xl border-2 border-white/30 hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
-          <CardHeader>
-            <CardTitle className="text-3xl text-center text-white font-bold">Professional Summary</CardTitle>
-          </CardHeader>
-          <CardContent className="text-lg text-white leading-relaxed space-y-4">
-            <p className="bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent font-semibold">
-              As an enthusiastic Computer Science & Engineering graduate with solid academic credentials, 
-              I am passionate about solving complex technological challenges and contributing to innovation-driven environments.
-            </p>
-            <p className="bg-gradient-to-r from-yellow-200 to-orange-200 bg-clip-text text-transparent font-semibold">
-              My journey in technology has been marked by continuous learning, hands-on project experience, 
-              and a commitment to professional growth. I thrive in collaborative environments where I can 
-              apply my technical knowledge while learning from experienced professionals.
-            </p>
-            <p className="bg-gradient-to-r from-green-200 to-cyan-200 bg-clip-text text-transparent font-semibold">
-              With experience in graphic design, project management, and software development, 
-              I bring a unique blend of technical and creative skills to every project I undertake.
-            </p>
-          </CardContent>
-        </Card>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left column - Text content */}
+          <div className="space-y-6">
+            <div className="prose prose-lg text-gray-600">
+              <p className="text-lg leading-relaxed">
+                As a Computer Science & Engineering graduate with solid academic credentials, 
+                I am passionate about solving complex technological challenges and contributing 
+                to innovation-driven environments.
+              </p>
+              <p className="text-lg leading-relaxed">
+                My journey in technology has been marked by continuous learning, hands-on project 
+                experience, and a commitment to professional growth. I thrive in collaborative 
+                environments where I can apply my technical knowledge while learning from 
+                experienced professionals.
+              </p>
+              <p className="text-lg leading-relaxed">
+                With experience in graphic design, project management, and software development, 
+                I bring a unique blend of technical and creative skills to every project I undertake.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Badge variant="secondary" className="px-4 py-2 text-sm font-medium">
+                Fresh Graduate
+              </Badge>
+              <Badge variant="secondary" className="px-4 py-2 text-sm font-medium">
+                Quick Learner
+              </Badge>
+              <Badge variant="secondary" className="px-4 py-2 text-sm font-medium">
+                Team Player
+              </Badge>
+              <Badge variant="secondary" className="px-4 py-2 text-sm font-medium">
+                Problem Solver
+              </Badge>
+            </div>
+          </div>
+
+          {/* Right column - Highlights */}
+          <div className="grid gap-6">
+            {highlights.map((highlight, index) => (
+              <Card key={index} className="border-l-4 border-l-blue-600 shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {highlight.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {highlight.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

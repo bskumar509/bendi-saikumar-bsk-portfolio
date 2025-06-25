@@ -1,97 +1,149 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Github, ExternalLink, Calendar } from "lucide-react";
 
 export const Projects = () => {
   const projects = [
     {
-      title: "Ucoin – Final Year Project",
-      description: "A privacy-preserving cryptocurrency scheme",
-      features: [
-        "Aggregates multiple user transactions to break input-output address links",
-        "Efficiently mixes 50 transactions in 6.3 seconds, outperforming alternatives by 18%",
-        "Focused on speed and transaction anonymity in decentralized systems"
+      title: "Ucoin – Privacy-Preserving Cryptocurrency",
+      description: "A cutting-edge cryptocurrency scheme focused on transaction privacy and anonymity through advanced cryptographic techniques.",
+      fullDescription: "Developed a privacy-preserving cryptocurrency scheme that aggregates multiple user transactions to break input-output address links, ensuring enhanced anonymity in decentralized systems.",
+      achievements: [
+        "Efficiently mixes 50 transactions in 6.3 seconds",
+        "Outperforms alternatives by 18% in processing speed",
+        "Implements advanced cryptographic protocols for privacy"
       ],
-      type: "Final Year Project",
+      technologies: ["Cryptography", "Blockchain", "Privacy Protocols", "Performance Optimization"],
+      category: "Final Year Project",
       github: "https://github.com/bskumar509/cryptocurrency-project",
-      color: "from-cyan-500 via-blue-500 to-purple-500"
+      period: "2024-2025",
+      status: "Completed"
     },
     {
-      title: "Modern Agriculture Techniques",
-      description: "Community Service Project documenting agricultural practices",
-      features: [
-        "Engaged with farmers to document modern agricultural practices",
-        "Produced comprehensive report to promote awareness",
-        "Focused on adoption of tech-driven farming solutions"
+      title: "Modern Agriculture Techniques Documentation",
+      description: "Community service project documenting and promoting awareness of modern agricultural practices among farmers.",
+      fullDescription: "Engaged directly with farmers to document modern agricultural practices and produced comprehensive reports to promote awareness of tech-driven farming solutions.",
+      achievements: [
+        "Conducted field research with local farmers",
+        "Documented modern agricultural practices comprehensively",
+        "Promoted adoption of technology-driven farming solutions"
       ],
-      type: "Community Service",
-      period: "Jan 2023",
+      technologies: ["Research", "Documentation", "Community Engagement", "Agricultural Technology"],
+      category: "Community Service",
       github: "https://github.com/bskumar509/Bendi.Saikumar",
-      color: "from-green-500 via-lime-500 to-emerald-500"
+      period: "Jan 2023",
+      status: "Completed"
     },
     {
-      title: "Student Career Path",
-      description: "The student-career-paths project is a career guidance platform",
-      features: [
+      title: "Student Career Path Guidance Platform",
+      description: "An AI-driven career guidance platform designed to help students make informed decisions about their career paths.",
+      fullDescription: "A comprehensive career guidance platform integrated with modern development tools and AI capabilities for personalized student guidance.",
+      achievements: [
         "Integrated with Lovable for AI-driven edits",
         "Supports GitHub workflows and cloud IDEs",
-        "Custom domain support and one-click deployment"
+        "Implemented custom domain support and one-click deployment"
       ],
-      type: "Personal Project",
-      period: "2025",
+      technologies: ["React", "TypeScript", "AI Integration", "Cloud Deployment", "GitHub Workflows"],
+      category: "Personal Project",
       github: "https://github.com/bskumar509/student-career-paths",
       live: "https://lovable.dev/projects/97b1f49c-e129-4572-bdb7-62782ae8792d",
-      color: "from-pink-500 via-red-500 to-orange-500"
+      period: "2025",
+      status: "In Development"
     }
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent mb-4">
-            Key Projects
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-white to-purple-200 mx-auto"></div>
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            A showcase of my technical projects demonstrating problem-solving skills and innovative thinking
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {projects.map((project, index) => {
-            const link = project.live || project.github;
-            return (
-              <a
-                key={index}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Card className="bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md shadow-2xl border-2 border-white/30 hover:shadow-3xl transition-all duration-300 hover:scale-105 h-full">
-                  <CardHeader>
-                    <div className="flex flex-col gap-3">
-                      <Badge className={`bg-gradient-to-r ${project.color} text-white w-fit font-bold text-sm px-3 py-1`}>
-                        {project.type}
-                      </Badge>
-                      <CardTitle className="text-2xl text-white font-bold">{project.title}</CardTitle>
-                      <p className="text-lg text-yellow-200 font-semibold">{project.description}</p>
-                      {project.period && (
-                        <Badge className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-black w-fit font-bold">
-                          {project.period}
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <Card key={index} className="shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0">
+              <CardHeader className="pb-4">
+                <div className="flex justify-between items-start mb-3">
+                  <Badge className={`px-3 py-1 text-sm ${
+                    project.category === 'Final Year Project' ? 'bg-blue-100 text-blue-800' :
+                    project.category === 'Community Service' ? 'bg-green-100 text-green-800' :
+                    'bg-purple-100 text-purple-800'
+                  }`}>
+                    {project.category}
+                  </Badge>
+                  <div className="flex items-center text-gray-500 text-sm">
+                    <Calendar className="w-4 h-4 mr-1" />
+                    {project.period}
+                  </div>
+                </div>
+                
+                <CardTitle className="text-xl font-bold text-gray-900 mb-2 leading-tight">
+                  {project.title}
+                </CardTitle>
+                
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {project.description}
+                </p>
+              </CardHeader>
+              
+              <CardContent className="pt-0">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Achievements:</h4>
+                    <ul className="space-y-1">
+                      {project.achievements.map((achievement, idx) => (
+                        <li key={idx} className="flex items-start text-sm">
+                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-2 flex-shrink-0"></div>
+                          <span className="text-gray-600 text-xs leading-relaxed">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">Technologies:</h4>
+                    <div className="flex flex-wrap gap-1">
+                      {project.technologies.slice(0, 3).map((tech, idx) => (
+                        <Badge key={idx} variant="outline" className="text-xs px-2 py-1">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <Badge variant="outline" className="text-xs px-2 py-1">
+                          +{project.technologies.length - 3} more
                         </Badge>
                       )}
                     </div>
-                  </CardHeader>
-                  <CardContent className="text-white">
-                    <ul className="list-disc list-inside space-y-2">
-                      {project.features.map((feature, idx) => (
-                        <li key={idx} className="text-gray-100">{feature}</li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </a>
-            );
-          })}
+                  </div>
+                  
+                  <div className="flex gap-2 pt-2">
+                    <Button asChild size="sm" variant="outline" className="flex-1">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-1" />
+                        Code
+                      </a>
+                    </Button>
+                    {project.live && (
+                      <Button asChild size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700">
+                        <a href={project.live} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-1" />
+                          Live
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
