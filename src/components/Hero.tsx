@@ -41,7 +41,7 @@ export const Hero = () => {
           <div className="relative">
             <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
               <img
-                src="/saikumar-profile.jpg"
+                src="/saikumar.jpg"
                 alt="Profile photo of Saikumar B"
                 className="w-full h-full object-cover"
               />
