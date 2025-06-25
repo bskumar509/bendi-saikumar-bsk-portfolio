@@ -6,12 +6,12 @@ export const Skills = () => {
   const skillCategories = [
     {
       category: "Programming & Web",
-      skills: ["Java (Basic)", "Python", "HTML"],
+      skills: ["Java (Basic)", "Python", "HTML/CSS"],
       color: "from-blue-500 to-purple-500"
     },
     {
       category: "Tools & Concepts",
-      skills: ["Project Management", "Design Principles"],
+      skills: ["Project Management", "Design Principles" , "Digital Maarketing "],
       color: "from-purple-500 to-pink-500"
     },
     {
