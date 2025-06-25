@@ -40,7 +40,7 @@ export const Hero = () => {
           {/* Profile Image */}
           <div className="relative">
             <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
-              import profile Imgge from'src/saikumar.jpg;
+              { import profileImage from "@/saikumar.jpg"} ; 
               <img
                 src="/saikumar.jpg"
                 alt="Profile photo of Saikumar B"
