@@ -1,8 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mail, Linkedin, Github, Download } from "lucide-react";
-import Image from "next/image";
 
 // --- Optional Header Component ---
 export const Header = () => (
@@ -36,13 +34,10 @@ export const Hero = () => {
         <div className="mb-8 animate-fade-in">
           <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-2xl ring-4 ring-gradient-to-r from-pink-500 to-cyan-500 p-1">
             <div className="w-full h-full rounded-full overflow-hidden">
-              <Image
+              <img
                 src="/saikumar-profile.jpg"
                 alt="Profile photo of Saikumar B"
-                width={128}
-                height={128}
                 className="object-cover w-full h-full"
-                priority
               />
             </div>
           </div>
