@@ -45,33 +45,33 @@ export const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 gradient-blue-medium">
+    <section id="certifications" className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 drop-shadow-lg">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Certifications & Achievements
           </h2>
-          <div className="w-20 h-1 bg-white/50 mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-blue-100">
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600">
             Professional certifications demonstrating commitment to continuous learning
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {certifications.map((cert, index) => (
-            <Card key={index} className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-1 border-0 bg-white/90 backdrop-blur-sm">
+            <Card key={index} className="shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0">
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center">
                     <span className="text-3xl mr-3">{cert.logo}</span>
-                    <Badge className="bg-blue-600 text-white px-3 py-1 hover:bg-blue-700">
+                    <Badge className="bg-blue-100 text-blue-800 px-3 py-1">
                       {cert.provider}
                     </Badge>
                   </div>
                   <span className="text-gray-500 text-sm font-medium">{cert.date}</span>
                 </div>
                 
-                <CardTitle className="text-xl font-bold gradient-text-blue leading-tight">
+                <CardTitle className="text-xl font-bold text-gray-900 leading-tight">
                   {cert.name}
                 </CardTitle>
               </CardHeader>
@@ -86,14 +86,14 @@ export const Certifications = () => {
                     <h4 className="font-semibold text-gray-900 mb-2 text-sm">Skills Covered:</h4>
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, idx) => (
-                        <Badge key={idx} variant="outline" className="text-xs px-2 py-1 border-blue-300 text-blue-700">
+                        <Badge key={idx} variant="outline" className="text-xs px-2 py-1">
                           {skill}
                         </Badge>
                       ))}
                     </div>
                   </div>
                   
-                  <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                  <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
                     <a href={cert.link} target="_blank" rel="noopener noreferrer">
                       <Award className="w-4 h-4 mr-2" />
                       View Certificate
@@ -108,20 +108,20 @@ export const Certifications = () => {
 
         {/* Additional Achievements */}
         <div className="mt-16">
-          <Card className="shadow-lg border-0 bg-white/90 backdrop-blur-sm">
+          <Card className="shadow-md border-0">
             <CardHeader>
-              <CardTitle className="text-xl font-bold gradient-text-blue flex items-center justify-center">
+              <CardTitle className="text-xl font-bold text-gray-900 flex items-center justify-center">
                 <Award className="w-6 h-6 mr-2 text-yellow-600" />
                 Additional Achievements
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                <div className="text-center p-4 bg-yellow-50 rounded-lg">
                   <h3 className="font-semibold text-gray-900 mb-2">Best Event Organizer – 2023</h3>
                   <p className="text-gray-600 text-sm">Recognized for outstanding event organization and leadership skills</p>
                 </div>
-                <div className="text-center p-4 bg-purple-50 rounded-lg border border-purple-200">
+                <div className="text-center p-4 bg-purple-50 rounded-lg">
                   <h3 className="font-semibold text-gray-900 mb-2">IDE Bootcamp Phase-III Selection</h3>
                   <p className="text-gray-600 text-sm">Selected by Smart India Hackathon & AICTE for advanced development bootcamp</p>
                 </div>

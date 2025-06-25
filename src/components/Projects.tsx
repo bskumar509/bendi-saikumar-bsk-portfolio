@@ -55,27 +55,27 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 gradient-blue-light">
+    <section id="projects" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold gradient-text-blue mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Featured Projects
           </h2>
-          <div className="w-20 h-1 gradient-blue-medium mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             A showcase of my technical projects demonstrating problem-solving skills and innovative thinking
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white/90 backdrop-blur-sm hover-gradient-blue">
+            <Card key={index} className="shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0">
               <CardHeader className="pb-4">
                 <div className="flex justify-between items-start mb-3">
                   <Badge className={`px-3 py-1 text-sm ${
-                    project.category === 'Final Year Project' ? 'bg-blue-600 text-white' :
-                    project.category === 'Community Service' ? 'bg-green-600 text-white' :
-                    'bg-purple-600 text-white'
+                    project.category === 'Final Year Project' ? 'bg-blue-100 text-blue-800' :
+                    project.category === 'Community Service' ? 'bg-green-100 text-green-800' :
+                    'bg-purple-100 text-purple-800'
                   }`}>
                     {project.category}
                   </Badge>
@@ -85,7 +85,7 @@ export const Projects = () => {
                   </div>
                 </div>
                 
-                <CardTitle className="text-xl font-bold gradient-text-blue mb-2 leading-tight">
+                <CardTitle className="text-xl font-bold text-gray-900 mb-2 leading-tight">
                   {project.title}
                 </CardTitle>
                 
@@ -112,12 +112,12 @@ export const Projects = () => {
                     <h4 className="font-semibold text-gray-900 mb-2 text-sm">Technologies:</h4>
                     <div className="flex flex-wrap gap-1">
                       {project.technologies.slice(0, 3).map((tech, idx) => (
-                        <Badge key={idx} variant="outline" className="text-xs px-2 py-1 border-blue-300 text-blue-700">
+                        <Badge key={idx} variant="outline" className="text-xs px-2 py-1">
                           {tech}
                         </Badge>
                       ))}
                       {project.technologies.length > 3 && (
-                        <Badge variant="outline" className="text-xs px-2 py-1 border-blue-300 text-blue-700">
+                        <Badge variant="outline" className="text-xs px-2 py-1">
                           +{project.technologies.length - 3} more
                         </Badge>
                       )}
@@ -125,14 +125,14 @@ export const Projects = () => {
                   </div>
                   
                   <div className="flex gap-2 pt-2">
-                    <Button asChild size="sm" variant="outline" className="flex-1 border-blue-300 text-blue-700 hover:bg-blue-50">
+                    <Button asChild size="sm" variant="outline" className="flex-1">
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-1" />
                         Code
                       </a>
                     </Button>
                     {project.live && (
-                      <Button asChild size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
+                      <Button asChild size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700">
                         <a href={project.live} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4 mr-1" />
                           Live

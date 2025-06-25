@@ -45,25 +45,25 @@ export const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 gradient-blue-light">
+    <section id="education" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold gradient-text-blue mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Education
           </h2>
-          <div className="w-20 h-1 gradient-blue-medium mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-gray-700">
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600">
             Academic journey and educational qualifications
           </p>
         </div>
 
         <div className="space-y-8">
           {educationData.map((education, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-l-blue-600 bg-white/90 backdrop-blur-sm hover-gradient-blue">
+            <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow border-l-4 border-l-blue-600">
               <CardHeader className="pb-4">
                 <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
                   <div className="flex-1">
-                    <CardTitle className="text-xl font-bold gradient-text-blue mb-2">
+                    <CardTitle className="text-xl font-bold text-gray-900 mb-2">
                       {education.degree}
                     </CardTitle>
                     <p className="text-lg text-blue-600 font-semibold mb-1">
@@ -82,7 +82,7 @@ export const Education = () => {
                       <Calendar className="w-4 h-4 mr-2" />
                       <span className="font-medium">{education.period}</span>
                     </div>
-                    <Badge className="bg-green-600 text-white px-3 py-1 flex items-center hover:bg-green-700">
+                    <Badge className="bg-green-100 text-green-800 px-3 py-1 flex items-center">
                       <Award className="w-4 h-4 mr-1" />
                       {education.grade}
                     </Badge>

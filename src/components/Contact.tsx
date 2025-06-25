@@ -54,14 +54,14 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 gradient-blue-dark">
+    <section id="contact" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 drop-shadow-lg">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-white/50 mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             I'm always open to discussing new opportunities and interesting projects. 
             Let's connect and see how we can work together!
           </p>
@@ -70,9 +70,9 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="lg:col-span-1">
-            <Card className="shadow-2xl border-0 h-fit bg-white/90 backdrop-blur-sm">
+            <Card className="shadow-lg border-0 h-fit">
               <CardHeader>
-                <CardTitle className="text-xl font-bold gradient-text-blue">
+                <CardTitle className="text-xl font-bold text-gray-900">
                   Contact Information
                 </CardTitle>
               </CardHeader>
@@ -83,7 +83,7 @@ export const Contact = () => {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors group"
+                    className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors group"
                   >
                     <div className="p-2 bg-blue-100 rounded-lg mr-4 group-hover:bg-blue-200 transition-colors">
                       <item.icon className="w-5 h-5 text-blue-600" />
@@ -117,9 +117,9 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm">
+            <Card className="shadow-lg border-0">
               <CardHeader>
-                <CardTitle className="text-xl font-bold gradient-text-blue">
+                <CardTitle className="text-xl font-bold text-gray-900">
                   Send Me a Message
                 </CardTitle>
               </CardHeader>
@@ -137,7 +137,7 @@ export const Contact = () => {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full border-blue-200 focus:border-blue-500 focus:ring-blue-500"
+                        className="w-full"
                         placeholder="Your full name"
                       />
                     </div>
@@ -153,7 +153,7 @@ export const Contact = () => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full border-blue-200 focus:border-blue-500 focus:ring-blue-500"
+                        className="w-full"
                         placeholder="your.email@example.com"
                       />
                     </div>
@@ -170,7 +170,7 @@ export const Contact = () => {
                       required
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full border-blue-200 focus:border-blue-500 focus:ring-blue-500"
+                      className="w-full"
                       placeholder="What's this about?"
                     />
                   </div>
@@ -185,14 +185,14 @@ export const Contact = () => {
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full h-32 resize-none border-blue-200 focus:border-blue-500 focus:ring-blue-500"
+                      className="w-full h-32 resize-none"
                       placeholder="Tell me about your project, opportunity, or just say hello..."
                     />
                   </div>
                   
                   <Button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg font-semibold transition-all duration-300 hover:shadow-lg"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg font-semibold"
                   >
                     <Send className="w-5 h-5 mr-2" />
                     Send Message
@@ -204,8 +204,8 @@ export const Contact = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-16 pt-8 border-t border-white/20">
-          <p className="text-blue-100">
+        <div className="text-center mt-16 pt-8 border-t border-gray-200">
+          <p className="text-gray-600">
             © 2024 Saikumar B. Built with React, TypeScript, and Tailwind CSS.
           </p>
         </div>
