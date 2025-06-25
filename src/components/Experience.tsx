@@ -8,7 +8,7 @@ export const Experience = () => {
     {
       title: "Graphic Designer",
       company: "Nstream Marketing",
-      period: "Nov 2024 – Present",
+      period: "DeC 2024 – Present",
       location: "Remote",
       type: "Part-time",
       responsibilities: [
@@ -17,7 +17,7 @@ export const Experience = () => {
         "Gained practical industry exposure in marketing and design principles",
         "Developed strong client communication and project management skills"
       ],
-      technologies: ["Adobe Creative Suite", "Design Principles", "Client Communication", "Project Management"]
+      technologies: ["Adobe Creative Suite", "Design Principles", "Client Communication", "Project Management","Social Media Designs"]
     }
   ];
 
