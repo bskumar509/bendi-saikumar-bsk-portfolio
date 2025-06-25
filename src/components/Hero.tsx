@@ -43,7 +43,7 @@ export const Hero = () => {
               { import profileImage from "@/saikumar.jpg"} ; 
               <img
                 src="/saikumar.jpg"
-                alt="Profile photo of Saikumar B"
+                alt="Profile photo "
                 className="w-full h-full object-cover"
               />
             </div>
