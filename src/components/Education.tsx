@@ -9,48 +9,48 @@ export const Education = () => {
       institution: "Chalapathi Institute of Technology",
       period: "2021 – 2025",
       grade: "CGPA: 7.2",
-      color: "from-blue-500 to-purple-500"
+      color: "from-blue-500 via-purple-500 to-pink-500"
     },
     {
       degree: "Intermediate (MPC)",
       institution: "Narayana Junior College",
       period: "2019 – 2021",
       grade: "77.5%",
-      color: "from-purple-500 to-pink-500"
+      color: "from-green-500 via-emerald-500 to-cyan-500"
     },
     {
       degree: "SSC",
       institution: "Narayana E.M School",
       period: "2019",
       grade: "CGPA: 9.2",
-      color: "from-pink-500 to-red-500"
+      color: "from-orange-500 via-red-500 to-pink-500"
     }
   ];
 
   return (
-    <section id="education" className="py-20 px-4">
+    <section id="education" className="py-20 px-4 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent mb-4">
             Education
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto"></div>
         </div>
         
         <div className="space-y-6">
           {educationData.map((edu, index) => (
-            <Card key={index} className="bg-white/80 backdrop-blur-sm shadow-xl border-0 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            <Card key={index} className="bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md shadow-2xl border-2 border-white/30 hover:shadow-3xl transition-all duration-300 hover:scale-105">
               <CardHeader>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                  <CardTitle className="text-2xl text-gray-800">{edu.degree}</CardTitle>
-                  <Badge className={`bg-gradient-to-r ${edu.color} text-white w-fit`}>
+                  <CardTitle className="text-2xl text-white font-bold">{edu.degree}</CardTitle>
+                  <Badge className={`bg-gradient-to-r ${edu.color} text-white w-fit font-bold text-lg px-4 py-2`}>
                     {edu.period}
                   </Badge>
                 </div>
-                <p className="text-xl text-blue-600 font-semibold">{edu.institution}</p>
+                <p className="text-xl text-yellow-300 font-bold">{edu.institution}</p>
               </CardHeader>
               <CardContent>
-                <Badge variant="outline" className="text-lg py-1 px-3 border-green-500 text-green-600">
+                <Badge className="text-lg py-2 px-4 bg-gradient-to-r from-lime-400 to-green-400 text-black font-bold">
                   {edu.grade}
                 </Badge>
               </CardContent>

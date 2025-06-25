@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -13,7 +14,7 @@ export const Projects = () => {
       ],
       type: "Final Year Project",
       github: "https://github.com/bskumar509/cryptocurrency-project",
-      color: "from-blue-500 to-purple-500"
+      color: "from-cyan-500 via-blue-500 to-purple-500"
     },
     {
       title: "Modern Agriculture Techniques",
@@ -26,7 +27,7 @@ export const Projects = () => {
       type: "Community Service",
       period: "Jan 2023",
       github: "https://github.com/bskumar509/Bendi.Saikumar",
-      color: "from-green-500 to-emerald-500"
+      color: "from-green-500 via-lime-500 to-emerald-500"
     },
     {
       title: "Student Career Path",
@@ -40,18 +41,18 @@ export const Projects = () => {
       period: "2025",
       github: "https://github.com/bskumar509/student-career-paths",
       live: "https://lovable.dev/projects/97b1f49c-e129-4572-bdb7-62782ae8792d",
-      color: "from-indigo-500 to-purple-600"
+      color: "from-pink-500 via-red-500 to-orange-500"
     }
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 bg-white/50">
+    <section id="projects" className="py-20 px-4 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent mb-4">
             Key Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-white to-purple-200 mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -65,25 +66,25 @@ export const Projects = () => {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Card className="bg-white/80 backdrop-blur-sm shadow-xl border-0 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <Card className="bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md shadow-2xl border-2 border-white/30 hover:shadow-3xl transition-all duration-300 hover:scale-105 h-full">
                   <CardHeader>
                     <div className="flex flex-col gap-3">
-                      <Badge className={`bg-gradient-to-r ${project.color} text-white w-fit`}>
+                      <Badge className={`bg-gradient-to-r ${project.color} text-white w-fit font-bold text-sm px-3 py-1`}>
                         {project.type}
                       </Badge>
-                      <CardTitle className="text-2xl text-gray-800">{project.title}</CardTitle>
-                      <p className="text-lg text-blue-600 font-semibold">{project.description}</p>
+                      <CardTitle className="text-2xl text-white font-bold">{project.title}</CardTitle>
+                      <p className="text-lg text-yellow-200 font-semibold">{project.description}</p>
                       {project.period && (
-                        <Badge variant="outline" className="w-fit">
+                        <Badge className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-black w-fit font-bold">
                           {project.period}
                         </Badge>
                       )}
                     </div>
                   </CardHeader>
-                  <CardContent className="text-gray-700">
+                  <CardContent className="text-white">
                     <ul className="list-disc list-inside space-y-2">
                       {project.features.map((feature, idx) => (
-                        <li key={idx}>{feature}</li>
+                        <li key={idx} className="text-gray-100">{feature}</li>
                       ))}
                     </ul>
                   </CardContent>

@@ -7,41 +7,41 @@ export const Skills = () => {
     {
       category: "Programming & Web",
       skills: ["Java (Basic)", "Python", "HTML/CSS"],
-      color: "from-blue-500 to-purple-500"
+      color: "from-red-500 via-pink-500 to-purple-500"
     },
     {
       category: "Tools & Concepts",
-      skills: ["Project Management", "Design Principles" , "Digital Maarketing "],
-      color: "from-purple-500 to-pink-500"
+      skills: ["Project Management", "Design Principles", "Digital Marketing"],
+      color: "from-green-500 via-emerald-500 to-cyan-500"
     },
     {
       category: "Languages",
       skills: ["English", "Telugu", "Hindi"],
-      color: "from-green-500 to-emerald-500"
+      color: "from-orange-500 via-yellow-500 to-red-500"
     }
   ];
 
   return (
-    <section id="skills" className="py-20 px-4">
+    <section id="skills" className="py-20 px-4 bg-gradient-to-br from-pink-600 via-purple-600 to-indigo-600">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent mb-4">
             Technical Skills
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto"></div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="bg-white/80 backdrop-blur-sm shadow-xl border-0 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            <Card key={index} className="bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md shadow-2xl border-2 border-white/30 hover:shadow-3xl transition-all duration-300 hover:scale-105">
               <CardHeader>
-                <CardTitle className={`text-2xl bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
+                <CardTitle className={`text-2xl bg-gradient-to-r ${category.color} bg-clip-text text-transparent font-bold`}>
                   {category.category}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 {category.skills.map((skill, idx) => (
-                  <Badge key={idx} variant="secondary" className="mr-2 mb-2 text-sm py-1 px-3">
+                  <Badge key={idx} className={`mr-2 mb-2 text-sm py-2 px-4 bg-gradient-to-r ${category.color} text-white font-semibold hover:scale-110 transition-transform`}>
                     {skill}
                   </Badge>
                 ))}
