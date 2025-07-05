@@ -55,8 +55,9 @@ export const Hero = () => {
           <div className="space-y-6">
             <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-                Hi, I'm <span className="gradient-text-blue bg-white bg-clip-text text-transparent">Saikumar B</span>
+                Hi, I'm<span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent ml-2">Saikumar B </span>
               </h1>
+
               <div className="h-8 flex justify-center items-center">
                 <p className="text-xl sm:text-2xl text-blue-100 font-medium">
                   {displayText}
