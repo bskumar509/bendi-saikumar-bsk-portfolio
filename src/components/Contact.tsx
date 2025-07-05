@@ -54,14 +54,17 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 gradient-blue-primary relative overflow-hidden">
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-blue-700/20"></div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-300 mx-auto mb-6"></div>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
             I'm always open to discussing new opportunities and interesting projects. 
             Let's connect and see how we can work together!
           </p>
@@ -70,9 +73,9 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="lg:col-span-1">
-            <Card className="shadow-lg border-0 h-fit">
+            <Card className="shadow-blue-lg gradient-blue-card border-0 backdrop-blur-sm h-fit">
               <CardHeader>
-                <CardTitle className="text-xl font-bold text-gray-900">
+                <CardTitle className="text-xl font-bold gradient-text-blue">
                   Contact Information
                 </CardTitle>
               </CardHeader>
@@ -83,30 +86,30 @@ export const Contact = () => {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                    className="flex items-center p-3 rounded-lg hover:bg-white/10 backdrop-blur-sm transition-all duration-300 group border border-blue-300/20"
                   >
-                    <div className="p-2 bg-blue-100 rounded-lg mr-4 group-hover:bg-blue-200 transition-colors">
-                      <item.icon className="w-5 h-5 text-blue-600" />
+                    <div className="p-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg mr-4 group-hover:from-blue-600 group-hover:to-cyan-600 transition-all duration-300">
+                      <item.icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">{item.label}</p>
-                      <p className="text-gray-600 text-sm">{item.value}</p>
+                      <p className="font-medium gradient-text-blue">{item.label}</p>
+                      <p className="text-blue-800 text-sm">{item.value}</p>
                     </div>
                   </a>
                 ))}
 
-                <div className="pt-6 border-t">
-                  <p className="text-gray-600 text-sm mb-4">
+                <div className="pt-6 border-t border-blue-300/20">
+                  <p className="text-blue-800 text-sm mb-4">
                     Available for opportunities in:
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                    <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-xs font-medium">
                       Software Development
                     </span>
-                    <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+                    <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full text-xs font-medium">
                       Web Development
                     </span>
-                    <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">
+                    <span className="px-3 py-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full text-xs font-medium">
                       Project Management
                     </span>
                   </div>
@@ -117,9 +120,9 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="shadow-lg border-0">
+            <Card className="shadow-blue-lg gradient-blue-card border-0 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="text-xl font-bold text-gray-900">
+                <CardTitle className="text-xl font-bold gradient-text-blue">
                   Send Me a Message
                 </CardTitle>
               </CardHeader>
@@ -127,7 +130,7 @@ export const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-blue-800 mb-2">
                         Full Name *
                       </label>
                       <Input
@@ -137,13 +140,13 @@ export const Contact = () => {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full"
+                        className="w-full bg-white/20 backdrop-blur-sm border-blue-300/30 text-blue-900 placeholder:text-blue-600"
                         placeholder="Your full name"
                       />
                     </div>
                     
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-blue-800 mb-2">
                         Email Address *
                       </label>
                       <Input
@@ -153,14 +156,14 @@ export const Contact = () => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full"
+                        className="w-full bg-white/20 backdrop-blur-sm border-blue-300/30 text-blue-900 placeholder:text-blue-600"
                         placeholder="your.email@example.com"
                       />
                     </div>
                   </div>
                   
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium text-blue-800 mb-2">
                       Subject *
                     </label>
                     <Input
@@ -170,13 +173,13 @@ export const Contact = () => {
                       required
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full"
+                      className="w-full bg-white/20 backdrop-blur-sm border-blue-300/30 text-blue-900 placeholder:text-blue-600"
                       placeholder="What's this about?"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-blue-800 mb-2">
                       Message *
                     </label>
                     <Textarea
@@ -185,14 +188,14 @@ export const Contact = () => {
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full h-32 resize-none"
+                      className="w-full h-32 resize-none bg-white/20 backdrop-blur-sm border-blue-300/30 text-blue-900 placeholder:text-blue-600"
                       placeholder="Tell me about your project, opportunity, or just say hello..."
                     />
                   </div>
                   
                   <Button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg font-semibold"
+                    className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 text-lg font-semibold border-0"
                   >
                     <Send className="w-5 h-5 mr-2" />
                     Send Message
@@ -204,8 +207,8 @@ export const Contact = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-16 pt-8 border-t border-gray-200">
-          <p className="text-gray-600">
+        <div className="text-center mt-16 pt-8 border-t border-blue-300/20">
+          <p className="text-blue-200">
             © 2024 Saikumar B. Built with React, TypeScript, and Tailwind CSS.
           </p>
         </div>

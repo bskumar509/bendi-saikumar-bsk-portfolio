@@ -1,4 +1,3 @@
-
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -45,55 +44,55 @@ export const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-gray-50">
+    <section id="certifications" className="py-20 gradient-blue-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Certifications & Achievements
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-300 mx-auto mb-6"></div>
+          <p className="text-xl text-blue-100">
             Professional certifications demonstrating commitment to continuous learning
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {certifications.map((cert, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0">
+            <Card key={index} className="shadow-blue-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 gradient-blue-card border-0 backdrop-blur-sm">
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center">
                     <span className="text-3xl mr-3">{cert.logo}</span>
-                    <Badge className="bg-blue-100 text-blue-800 px-3 py-1">
+                    <Badge className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1 border-0">
                       {cert.provider}
                     </Badge>
                   </div>
-                  <span className="text-gray-500 text-sm font-medium">{cert.date}</span>
+                  <span className="text-blue-700 text-sm font-medium">{cert.date}</span>
                 </div>
                 
-                <CardTitle className="text-xl font-bold text-gray-900 leading-tight">
+                <CardTitle className="text-xl font-bold gradient-text-blue leading-tight">
                   {cert.name}
                 </CardTitle>
               </CardHeader>
               
               <CardContent className="pt-0">
                 <div className="space-y-4">
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-blue-800 text-sm leading-relaxed">
                     {cert.description}
                   </p>
                   
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">Skills Covered:</h4>
+                    <h4 className="font-semibold gradient-text-blue mb-2 text-sm">Skills Covered:</h4>
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, idx) => (
-                        <Badge key={idx} variant="outline" className="text-xs px-2 py-1">
+                        <Badge key={idx} className="text-xs px-2 py-1 bg-white/30 backdrop-blur-sm text-blue-800 border border-blue-300/30">
                           {skill}
                         </Badge>
                       ))}
                     </div>
                   </div>
                   
-                  <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
+                  <Button asChild className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white border-0">
                     <a href={cert.link} target="_blank" rel="noopener noreferrer">
                       <Award className="w-4 h-4 mr-2" />
                       View Certificate
@@ -108,22 +107,22 @@ export const Certifications = () => {
 
         {/* Additional Achievements */}
         <div className="mt-16">
-          <Card className="shadow-md border-0">
+          <Card className="shadow-blue gradient-blue-card border-0 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-xl font-bold text-gray-900 flex items-center justify-center">
-                <Award className="w-6 h-6 mr-2 text-yellow-600" />
+              <CardTitle className="text-xl font-bold gradient-text-blue flex items-center justify-center">
+                <Award className="w-6 h-6 mr-2 text-yellow-500" />
                 Additional Achievements
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-yellow-50 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">Best Event Organizer – 2023</h3>
-                  <p className="text-gray-600 text-sm">Recognized for outstanding event organization and leadership skills</p>
+                <div className="text-center p-4 bg-gradient-to-br from-yellow-100/50 to-blue-100/50 backdrop-blur-sm rounded-lg border border-blue-300/30">
+                  <h3 className="font-semibold gradient-text-blue mb-2">Best Event Organizer – 2023</h3>
+                  <p className="text-blue-800 text-sm">Recognized for outstanding event organization and leadership skills</p>
                 </div>
-                <div className="text-center p-4 bg-purple-50 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">IDE Bootcamp Phase-III Selection</h3>
-                  <p className="text-gray-600 text-sm">Selected by Smart India Hackathon & AICTE for advanced development bootcamp</p>
+                <div className="text-center p-4 bg-gradient-to-br from-purple-100/50 to-blue-100/50 backdrop-blur-sm rounded-lg border border-blue-300/30">
+                  <h3 className="font-semibold gradient-text-blue mb-2">IDE Bootcamp Phase-III Selection</h3>
+                  <p className="text-blue-800 text-sm">Selected by Smart India Hackathon & AICTE for advanced development bootcamp</p>
                 </div>
               </div>
             </CardContent>

@@ -55,41 +55,41 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 gradient-blue-light">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold gradient-text-blue mb-4">
             Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6"></div>
+          <p className="text-xl text-blue-800 max-w-3xl mx-auto">
             A showcase of my technical projects demonstrating problem-solving skills and innovative thinking
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0">
+            <Card key={index} className="shadow-blue-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 gradient-blue-card border-0 backdrop-blur-sm">
               <CardHeader className="pb-4">
                 <div className="flex justify-between items-start mb-3">
-                  <Badge className={`px-3 py-1 text-sm ${
-                    project.category === 'Final Year Project' ? 'bg-blue-100 text-blue-800' :
-                    project.category === 'Community Service' ? 'bg-green-100 text-green-800' :
-                    'bg-purple-100 text-purple-800'
+                  <Badge className={`px-3 py-1 text-sm text-white border-0 ${
+                    project.category === 'Final Year Project' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
+                    project.category === 'Community Service' ? 'bg-gradient-to-r from-green-500 to-blue-500' :
+                    'bg-gradient-to-r from-purple-500 to-blue-500'
                   }`}>
                     {project.category}
                   </Badge>
-                  <div className="flex items-center text-gray-500 text-sm">
+                  <div className="flex items-center text-blue-700 text-sm">
                     <Calendar className="w-4 h-4 mr-1" />
                     {project.period}
                   </div>
                 </div>
                 
-                <CardTitle className="text-xl font-bold text-gray-900 mb-2 leading-tight">
+                <CardTitle className="text-xl font-bold gradient-text-blue mb-2 leading-tight">
                   {project.title}
                 </CardTitle>
                 
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-blue-800 text-sm leading-relaxed">
                   {project.description}
                 </p>
               </CardHeader>
@@ -97,27 +97,27 @@ export const Projects = () => {
               <CardContent className="pt-0">
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Achievements:</h4>
+                    <h4 className="font-semibold gradient-text-blue mb-2 text-sm">Key Achievements:</h4>
                     <ul className="space-y-1">
                       {project.achievements.map((achievement, idx) => (
                         <li key={idx} className="flex items-start text-sm">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-2 flex-shrink-0"></div>
-                          <span className="text-gray-600 text-xs leading-relaxed">{achievement}</span>
+                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-2 mr-2 flex-shrink-0"></div>
+                          <span className="text-blue-800 text-xs leading-relaxed">{achievement}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">Technologies:</h4>
+                    <h4 className="font-semibold gradient-text-blue mb-2 text-sm">Technologies:</h4>
                     <div className="flex flex-wrap gap-1">
                       {project.technologies.slice(0, 3).map((tech, idx) => (
-                        <Badge key={idx} variant="outline" className="text-xs px-2 py-1">
+                        <Badge key={idx} className="text-xs px-2 py-1 bg-white/30 backdrop-blur-sm text-blue-800 border border-blue-300/30">
                           {tech}
                         </Badge>
                       ))}
                       {project.technologies.length > 3 && (
-                        <Badge variant="outline" className="text-xs px-2 py-1">
+                        <Badge className="text-xs px-2 py-1 bg-white/30 backdrop-blur-sm text-blue-800 border border-blue-300/30">
                           +{project.technologies.length - 3} more
                         </Badge>
                       )}
@@ -125,14 +125,14 @@ export const Projects = () => {
                   </div>
                   
                   <div className="flex gap-2 pt-2">
-                    <Button asChild size="sm" variant="outline" className="flex-1">
+                    <Button asChild size="sm" className="flex-1 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-blue-800 border border-blue-300/30">
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-1" />
                         Code
                       </a>
                     </Button>
                     {project.live && (
-                      <Button asChild size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700">
+                      <Button asChild size="sm" className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white border-0">
                         <a href={project.live} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4 mr-1" />
                           Live

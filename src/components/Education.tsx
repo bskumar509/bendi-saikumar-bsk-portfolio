@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Award } from "lucide-react";
@@ -7,7 +6,7 @@ export const Education = () => {
   const educationData = [
     {
       degree: "Bachelor of Technology (B.Tech)",
-      field: "Computer Science & Engineering",
+      field: "Computer Science & Engineering", 
       institution: "Chalapathi Institute of Technology",
       period: "2021 – 2025",
       grade: "CGPA: 7.2",
@@ -45,44 +44,44 @@ export const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-white">
+    <section id="education" className="py-20 gradient-blue-light">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold gradient-text-blue mb-4">
             Education
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600">
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6"></div>
+          <p className="text-xl text-blue-800">
             Academic journey and educational qualifications
           </p>
         </div>
 
         <div className="space-y-8">
           {educationData.map((education, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow border-l-4 border-l-blue-600">
+            <Card key={index} className="shadow-blue-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-l-blue-500 gradient-blue-card border-0 backdrop-blur-sm">
               <CardHeader className="pb-4">
                 <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
                   <div className="flex-1">
-                    <CardTitle className="text-xl font-bold text-gray-900 mb-2">
+                    <CardTitle className="text-xl font-bold gradient-text-blue mb-2">
                       {education.degree}
                     </CardTitle>
                     <p className="text-lg text-blue-600 font-semibold mb-1">
                       {education.field}
                     </p>
-                    <p className="text-gray-700 font-medium mb-2">
+                    <p className="text-blue-800 font-medium mb-2">
                       {education.institution}
                     </p>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-blue-700 text-sm">
                       {education.location}
                     </p>
                   </div>
                   
                   <div className="flex flex-col lg:items-end space-y-2 mt-4 lg:mt-0">
-                    <div className="flex items-center text-gray-600">
+                    <div className="flex items-center text-blue-700">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span className="font-medium">{education.period}</span>
                     </div>
-                    <Badge className="bg-green-100 text-green-800 px-3 py-1 flex items-center">
+                    <Badge className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-3 py-1 flex items-center border-0">
                       <Award className="w-4 h-4 mr-1" />
                       {education.grade}
                     </Badge>
@@ -92,12 +91,12 @@ export const Education = () => {
               
               <CardContent>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Highlights:</h4>
+                  <h4 className="font-semibold gradient-text-blue mb-3">Key Highlights:</h4>
                   <ul className="space-y-2">
                     {education.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-start">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-600">{highlight}</span>
+                        <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span className="text-blue-800">{highlight}</span>
                       </li>
                     ))}
                   </ul>

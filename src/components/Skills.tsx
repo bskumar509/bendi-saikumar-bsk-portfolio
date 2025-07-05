@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -54,22 +53,22 @@ export const Skills = () => {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Advanced': return 'bg-green-100 text-green-800';
-      case 'Intermediate': return 'bg-blue-100 text-blue-800';
-      case 'Basic': return 'bg-yellow-100 text-yellow-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'Advanced': return 'bg-gradient-to-r from-green-500 to-blue-500 text-white border-0';
+      case 'Intermediate': return 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-0';
+      case 'Basic': return 'bg-gradient-to-r from-yellow-400 to-blue-400 text-white border-0';
+      default: return 'bg-gradient-to-r from-gray-400 to-blue-400 text-white border-0';
     }
   };
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-20 gradient-blue-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Skills & Expertise
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-300 mx-auto mb-6"></div>
+          <p className="text-xl text-blue-100">
             Technical skills and competencies developed through education and practical experience
           </p>
         </div>
@@ -77,9 +76,9 @@ export const Skills = () => {
         {/* Technical Skills */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="shadow-md hover:shadow-lg transition-shadow border-0">
+            <Card key={index} className="shadow-blue hover:shadow-blue-lg transition-all duration-300 gradient-blue-card border-0 backdrop-blur-sm">
               <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-bold text-gray-900 flex items-center">
+                <CardTitle className="text-lg font-bold gradient-text-blue flex items-center">
                   <span className="text-2xl mr-2">{category.icon}</span>
                   {category.category}
                 </CardTitle>
@@ -88,7 +87,7 @@ export const Skills = () => {
                 <div className="space-y-3">
                   {category.skills.map((skill, idx) => (
                     <div key={idx} className="flex justify-between items-center">
-                      <span className="text-gray-700 font-medium text-sm">{skill.name}</span>
+                      <span className="text-blue-800 font-medium text-sm">{skill.name}</span>
                       <Badge className={`text-xs px-2 py-1 ${getLevelColor(skill.level)}`}>
                         {skill.level}
                       </Badge>
@@ -101,9 +100,9 @@ export const Skills = () => {
         </div>
 
         {/* Languages */}
-        <Card className="shadow-md border-0">
+        <Card className="shadow-blue gradient-blue-card border-0 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle className="text-xl font-bold text-gray-900 flex items-center justify-center">
+            <CardTitle className="text-xl font-bold gradient-text-blue flex items-center justify-center">
               <span className="text-2xl mr-2">🌍</span>
               Languages
             </CardTitle>
@@ -112,8 +111,8 @@ export const Skills = () => {
             <div className="flex flex-wrap justify-center gap-4">
               {languages.map((language, index) => (
                 <div key={index} className="text-center">
-                  <div className="bg-blue-50 rounded-lg p-4 min-w-[120px]">
-                    <div className="font-semibold text-gray-900">{language.name}</div>
+                  <div className="gradient-blue-card rounded-lg p-4 min-w-[120px] border border-blue-300/30 backdrop-blur-sm">
+                    <div className="font-semibold gradient-text-blue">{language.name}</div>
                     <div className="text-sm text-blue-600 font-medium">{language.proficiency}</div>
                   </div>
                 </div>
