@@ -40,17 +40,16 @@ export const Hero = () => {
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="space-y-8">
-          {/* Profile Image */}
           <div className="relative">
-            <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-blue-lg">
-              <img
-                src="/saikumar.jpg"
-                alt="Profile photo "
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-20 blur-xl animate-pulse"></div>
-          </div>
+  <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-blue-lg">
+    <img
+      src={`${process.env.PUBLIC_URL}/saikumar.jpg`}
+      alt="Profile photo"
+      className="w-full h-full object-cover"
+    />
+  </div>
+  <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-20 blur-xl animate-pulse"></div>
+</div>
 
           {/* Main Content */}
           <div className="space-y-6">
@@ -90,7 +89,7 @@ export const Hero = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-white/50 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-3 text-lg transition-all duration-300"
+                  className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 px-8 py-3 text-lg transition-all duration-300 shadow-blue"
                 >
                   <Download className="w-5 h-5 mr-2" />
                   Download Resume
