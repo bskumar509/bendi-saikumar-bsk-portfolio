@@ -209,7 +209,7 @@ export const Contact = () => {
         {/* Footer */}
         <div className="text-center mt-16 pt-8 border-t border-blue-300/20">
           <p className="text-blue-200">
-            © 2025 Saikumar B,<br> Built with React, TypeScript, and Tailwind CSS.</br>
+            © 2024 Saikumar B. Built with React, TypeScript, and Tailwind CSS.
           </p>
         </div>
       </div>
