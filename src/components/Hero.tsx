@@ -121,7 +121,7 @@ export const Hero = () => {
             <div className="relative">
               <div className="w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-blue-500 shadow-blue-lg">
                 <img
-                  src={'@/src/saikumar.jpg'}
+                  src="/lovable-uploads/647dddde-46c8-450b-b22f-5be24df4c43c.png"
                   alt="Profilephoto"
                   className="w-full h-full object-cover"
                 />
