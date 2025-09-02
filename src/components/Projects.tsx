@@ -2,9 +2,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Calendar } from "lucide-react";
+import { Github, ExternalLink, Calendar, Filter } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { AnimatedSection } from "./AnimatedSection";
+import { useState } from "react";
 
 export const Projects = () => {
+  const [filter, setFilter] = useState("All");
+
   const projects = [
     {
       title: "Ucoin – Privacy-Preserving Cryptocurrency",
@@ -54,96 +59,169 @@ export const Projects = () => {
     }
   ];
 
+  const categories = ["All", ...new Set(projects.map(project => project.category))];
+  const filteredProjects = filter === "All" ? projects : projects.filter(project => project.category === filter);
+
   return (
-    <section id="projects" className="py-20 gradient-blue-light">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold gradient-text-blue mb-4">
+    <section id="projects" className="py-20 bg-gradient-to-br from-surface via-surface-light to-surface relative overflow-hidden">
+      <div className="absolute inset-0 animated-gradient opacity-20"></div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <AnimatedSection className="text-center mb-16">
+          <motion.h2 
+            className="text-3xl sm:text-4xl font-bold text-gradient-primary mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Featured Projects
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6"></div>
-          <p className="text-xl text-blue-800 max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.div 
+            className="w-20 h-1 bg-gradient-primary mx-auto mb-6"
+            initial={{ width: 0 }}
+            animate={{ width: 80 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          ></motion.div>
+          <motion.p 
+            className="text-xl text-foreground-muted max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             A showcase of my technical projects demonstrating problem-solving skills and innovative thinking
-          </p>
-        </div>
+          </motion.p>
+        </AnimatedSection>
+
+        {/* Project Filter */}
+        <motion.div 
+          className="flex flex-wrap justify-center gap-2 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={filter === category ? "default" : "outline"}
+              size="sm"
+              onClick={() => setFilter(category)}
+              className={`transition-all duration-300 ${
+                filter === category
+                  ? "bg-gradient-primary text-white shadow-glow"
+                  : "glass-card hover:border-accent"
+              }`}
+            >
+              <Filter className="w-3 h-3 mr-1" />
+              {category}
+            </Button>
+          ))}
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Card key={index} className="shadow-blue-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 gradient-blue-card border-0 backdrop-blur-sm">
-              <CardHeader className="pb-4">
-                <div className="flex justify-between items-start mb-3">
-                  <Badge className={`px-3 py-1 text-sm text-white border-0 ${
-                    project.category === 'Final Year Project' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
-                    project.category === 'Community Service' ? 'bg-gradient-to-r from-green-500 to-blue-500' :
-                    'bg-gradient-to-r from-purple-500 to-blue-500'
-                  }`}>
-                    {project.category}
-                  </Badge>
-                  <div className="flex items-center text-blue-700 text-sm">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    {project.period}
-                  </div>
-                </div>
-                
-                <CardTitle className="text-xl font-bold gradient-text-blue mb-2 leading-tight">
-                  {project.title}
-                </CardTitle>
-                
-                <p className="text-blue-800 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-              </CardHeader>
-              
-              <CardContent className="pt-0">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold gradient-text-blue mb-2 text-sm">Key Achievements:</h4>
-                    <ul className="space-y-1">
-                      {project.achievements.map((achievement, idx) => (
-                        <li key={idx} className="flex items-start text-sm">
-                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-2 mr-2 flex-shrink-0"></div>
-                          <span className="text-blue-800 text-xs leading-relaxed">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold gradient-text-blue mb-2 text-sm">Technologies:</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {project.technologies.slice(0, 3).map((tech, idx) => (
-                        <Badge key={idx} className="text-xs px-2 py-1 bg-white/30 backdrop-blur-sm text-blue-800 border border-blue-300/30">
-                          {tech}
-                        </Badge>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <Badge className="text-xs px-2 py-1 bg-white/30 backdrop-blur-sm text-blue-800 border border-blue-300/30">
-                          +{project.technologies.length - 3} more
-                        </Badge>
-                      )}
+          <AnimatePresence mode="wait">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                layout
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.9 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group"
+              >
+                <Card className="glass-card hover:shadow-glow transition-all duration-500 border-border-subtle hover:border-accent h-full overflow-hidden">
+                <CardHeader className="pb-4">
+                  <div className="flex justify-between items-start mb-3">
+                    <Badge className={`px-3 py-1 text-sm text-white border-0 ${
+                      project.category === 'Final Year Project' ? 'bg-gradient-to-r from-primary to-accent' :
+                      project.category === 'Community Service' ? 'bg-gradient-to-r from-emerald-500 to-primary' :
+                      'bg-gradient-to-r from-purple-500 to-primary'
+                    }`}>
+                      {project.category}
+                    </Badge>
+                    <div className="flex items-center text-foreground-muted text-sm">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {project.period}
                     </div>
                   </div>
                   
-                  <div className="flex gap-2 pt-2">
-                    <Button asChild size="sm" className="flex-1 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-blue-800 border border-blue-300/30">
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-1" />
-                        Code
-                      </a>
-                    </Button>
-                    {project.live && (
-                      <Button asChild size="sm" className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white border-0">
-                        <a href={project.live} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-4 h-4 mr-1" />
-                          Live
-                        </a>
-                      </Button>
-                    )}
+                  <CardTitle className="text-xl font-bold text-gradient-primary mb-2 leading-tight group-hover:text-accent transition-colors duration-300">
+                    {project.title}
+                  </CardTitle>
+                  
+                  <p className="text-foreground-muted text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                </CardHeader>
+                
+                <CardContent className="pt-0">
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-gradient-primary mb-2 text-sm">Key Achievements:</h4>
+                      <ul className="space-y-1">
+                        {project.achievements.map((achievement, idx) => (
+                          <motion.li 
+                            key={idx} 
+                            className="flex items-start text-sm"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: idx * 0.1 }}
+                          >
+                            <div className="w-1.5 h-1.5 bg-gradient-primary rounded-full mt-2 mr-2 flex-shrink-0"></div>
+                            <span className="text-foreground-muted text-xs leading-relaxed">{achievement}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gradient-primary mb-2 text-sm">Technologies:</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {project.technologies.slice(0, 3).map((tech, idx) => (
+                          <motion.div
+                            key={idx}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <Badge className="text-xs px-2 py-1 glass-card text-foreground border border-border-subtle hover:border-accent transition-colors duration-300">
+                              {tech}
+                            </Badge>
+                          </motion.div>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <Badge className="text-xs px-2 py-1 glass-card text-foreground border border-border-subtle">
+                            +{project.technologies.length - 3} more
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-2 pt-2">
+                      <motion.div className="flex-1" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <Button asChild size="sm" className="w-full glass-card hover:border-accent text-foreground border border-border-subtle">
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <Github className="w-4 h-4 mr-1" />
+                            Code
+                          </a>
+                        </Button>
+                      </motion.div>
+                      {project.live && (
+                        <motion.div className="flex-1" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                          <Button asChild size="sm" className="w-full bg-gradient-primary hover:shadow-glow text-white border-0">
+                            <a href={project.live} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink className="w-4 h-4 mr-1" />
+                              Live
+                            </a>
+                          </Button>
+                        </motion.div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>
