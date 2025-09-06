@@ -2,14 +2,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Calendar, Filter, Star, Trophy, Target } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { AnimatedSection } from "./AnimatedSection";
-import { useState } from "react";
+import { Github, ExternalLink, Calendar } from "lucide-react";
 
 export const Projects = () => {
-  const [filter, setFilter] = useState("All");
-
   const projects = [
     {
       title: "Ucoin – Privacy-Preserving Cryptocurrency",
@@ -59,243 +54,97 @@ export const Projects = () => {
     }
   ];
 
-  const categories = ["All", ...new Set(projects.map(project => project.category))];
-  const filteredProjects = filter === "All" ? projects : projects.filter(project => project.category === filter);
-
   return (
-    <section id="projects" className="py-32 bg-gradient-to-br from-background via-surface-light to-background relative overflow-hidden">
-      <div className="absolute inset-0 animated-gradient opacity-10"></div>
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        <AnimatedSection className="text-center mb-20">
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Trophy className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-foreground">Featured Work</span>
-          </motion.div>
-          
-          <motion.h2 
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gradient-primary mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+    <section id="projects" className="py-20 gradient-blue-light">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold gradient-text-blue mb-4">
             Featured Projects
-          </motion.h2>
-          
-          <motion.div 
-            className="w-32 h-1 bg-gradient-primary mx-auto mb-8"
-            initial={{ width: 0 }}
-            animate={{ width: 128 }}
-            transition={{ duration: 1, delay: 0.4 }}
-          ></motion.div>
-          
-          <motion.p 
-            className="text-xl lg:text-2xl text-foreground/70 max-w-4xl mx-auto leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            A showcase of innovative solutions demonstrating technical expertise, 
-            problem-solving skills, and commitment to excellence
-          </motion.p>
-        </AnimatedSection>
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6"></div>
+          <p className="text-xl text-blue-800 max-w-3xl mx-auto">
+            A showcase of my technical projects demonstrating problem-solving skills and innovative thinking
+          </p>
+        </div>
 
-        {/* Enhanced Project Filter */}
-        <motion.div 
-          className="flex flex-wrap justify-center gap-4 mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          {categories.map((category, index) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                variant={filter === category ? "default" : "outline"}
-                onClick={() => setFilter(category)}
-                className={`transition-all duration-300 px-6 py-3 rounded-2xl font-semibold ${
-                  filter === category
-                    ? "bg-gradient-primary text-white shadow-glow-lg scale-105"
-                    : "glass-card hover:border-primary/50 hover:shadow-glow text-foreground"
-                }`}
-              >
-                <Filter className="w-4 h-4 mr-2" />
-                {category}
-              </Button>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
-          <AnimatePresence mode="wait">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                layout
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -30, scale: 0.9 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -12, scale: 1.02 }}
-                className="group"
-              >
-                <Card className="glass-card hover:shadow-glow-lg transition-all duration-500 border-border-subtle hover:border-primary/30 h-full overflow-hidden backdrop-blur-xl">
-                  <CardHeader className="pb-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <Badge className={`px-4 py-2 text-sm font-semibold text-white border-0 rounded-xl ${
-                          project.category === 'Final Year Project' ? 'bg-gradient-to-r from-primary to-secondary' :
-                          project.category === 'Community Service' ? 'bg-gradient-to-r from-accent to-primary' :
-                          'bg-gradient-to-r from-secondary to-primary'
-                        }`}>
-                          {project.category}
-                        </Badge>
-                      </motion.div>
-                      
-                      <div className="flex items-center gap-2 text-foreground/60 text-sm">
-                        <Calendar className="w-4 h-4" />
-                        <span className="font-medium">{project.period}</span>
-                      </div>
-                    </div>
-                    
-                    <CardTitle className="text-2xl font-bold text-gradient-primary mb-3 leading-tight group-hover:text-accent transition-colors duration-300">
-                      {project.title}
-                    </CardTitle>
-                    
-                    <p className="text-foreground/70 text-base leading-relaxed">
-                      {project.description}
-                    </p>
-                  </CardHeader>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <Card key={index} className="shadow-blue-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 gradient-blue-card border-0 backdrop-blur-sm">
+              <CardHeader className="pb-4">
+                <div className="flex justify-between items-start mb-3">
+                  <Badge className={`px-3 py-1 text-sm text-white border-0 ${
+                    project.category === 'Final Year Project' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
+                    project.category === 'Community Service' ? 'bg-gradient-to-r from-green-500 to-blue-500' :
+                    'bg-gradient-to-r from-purple-500 to-blue-500'
+                  }`}>
+                    {project.category}
+                  </Badge>
+                  <div className="flex items-center text-blue-700 text-sm">
+                    <Calendar className="w-4 h-4 mr-1" />
+                    {project.period}
+                  </div>
+                </div>
+                
+                <CardTitle className="text-xl font-bold gradient-text-blue mb-2 leading-tight">
+                  {project.title}
+                </CardTitle>
+                
+                <p className="text-blue-800 text-sm leading-relaxed">
+                  {project.description}
+                </p>
+              </CardHeader>
+              
+              <CardContent className="pt-0">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold gradient-text-blue mb-2 text-sm">Key Achievements:</h4>
+                    <ul className="space-y-1">
+                      {project.achievements.map((achievement, idx) => (
+                        <li key={idx} className="flex items-start text-sm">
+                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-2 mr-2 flex-shrink-0"></div>
+                          <span className="text-blue-800 text-xs leading-relaxed">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   
-                  <CardContent className="pt-0 space-y-6">
-                    <div>
-                      <div className="flex items-center gap-2 mb-3">
-                        <Target className="w-4 h-4 text-primary" />
-                        <h4 className="font-semibold text-gradient-primary text-base">Key Achievements</h4>
-                      </div>
-                      <ul className="space-y-2">
-                        {project.achievements.map((achievement, idx) => (
-                          <motion.li 
-                            key={idx} 
-                            className="flex items-start text-sm group/item"
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: idx * 0.1 }}
-                            whileHover={{ x: 4 }}
-                          >
-                            <Star className="w-3 h-3 text-primary mt-1 mr-3 flex-shrink-0 group-hover/item:text-accent transition-colors duration-200" />
-                            <span className="text-foreground/70 leading-relaxed group-hover/item:text-foreground transition-colors duration-200">
-                              {achievement}
-                            </span>
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-semibold text-gradient-primary mb-3 text-base">Technologies</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.slice(0, 3).map((tech, idx) => (
-                          <motion.div
-                            key={idx}
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <Badge className="text-sm px-3 py-2 glass-card text-foreground border border-border-subtle hover:border-primary/50 transition-all duration-300 rounded-lg font-medium">
-                              {tech}
-                            </Badge>
-                          </motion.div>
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <Badge className="text-sm px-3 py-2 glass-card text-foreground/60 border border-border-subtle rounded-lg">
-                            +{project.technologies.length - 3} more
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
-                    
-                    <div className="flex gap-3 pt-4">
-                      <motion.div 
-                        className="flex-1" 
-                        whileHover={{ scale: 1.02 }} 
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <Button 
-                          asChild 
-                          className="w-full glass-card hover:border-primary/50 text-foreground border border-border-subtle rounded-xl py-3 font-semibold hover-glow"
-                        >
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <Github className="w-4 h-4 mr-2" />
-                            View Code
-                          </a>
-                        </Button>
-                      </motion.div>
-                      
-                      {project.live && (
-                        <motion.div 
-                          className="flex-1" 
-                          whileHover={{ scale: 1.02 }} 
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <Button 
-                            asChild 
-                            className="w-full bg-gradient-primary hover:shadow-glow-lg text-white border-0 rounded-xl py-3 font-semibold"
-                          >
-                            <a href={project.live} target="_blank" rel="noopener noreferrer">
-                              <ExternalLink className="w-4 h-4 mr-2" />
-                              Live Demo
-                            </a>
-                          </Button>
-                        </motion.div>
+                  <div>
+                    <h4 className="font-semibold gradient-text-blue mb-2 text-sm">Technologies:</h4>
+                    <div className="flex flex-wrap gap-1">
+                      {project.technologies.slice(0, 3).map((tech, idx) => (
+                        <Badge key={idx} className="text-xs px-2 py-1 bg-white/30 backdrop-blur-sm text-blue-800 border border-blue-300/30">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <Badge className="text-xs px-2 py-1 bg-white/30 backdrop-blur-sm text-blue-800 border border-blue-300/30">
+                          +{project.technologies.length - 3} more
+                        </Badge>
                       )}
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                  </div>
+                  
+                  <div className="flex gap-2 pt-2">
+                    <Button asChild size="sm" className="flex-1 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-blue-800 border border-blue-300/30">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-1" />
+                        Code
+                      </a>
+                    </Button>
+                    {project.live && (
+                      <Button asChild size="sm" className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white border-0">
+                        <a href={project.live} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-1" />
+                          Live
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-        
-        {/* Call to Action */}
-        <motion.div
-          className="text-center mt-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <motion.p 
-            className="text-xl text-foreground/70 mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            Interested in collaborating on innovative projects?
-          </motion.p>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-primary hover:shadow-glow-lg text-white border-0 px-10 py-4 text-lg font-semibold rounded-2xl"
-            >
-              Let's Work Together
-            </Button>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

@@ -1,9 +1,7 @@
 
 import { Button } from "@/components/ui/button";
-import { Mail, Github, Linkedin, Download, ArrowDown, Sparkles } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { AnimatedBackground } from "./AnimatedBackground";
 
 export const Hero = () => {
   const [displayText, setDisplayText] = useState("");
@@ -36,174 +34,117 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
-      {/* Silhouette overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/30" />
-      
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-primary/20 rounded-full"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
+    <section id="home" className="min-h-screen flex items-center justify-center gradient-blue-light pt-20 pb-16 relative overflow-hidden">
+      {/* Background overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-transparent to-blue-200/20"></div>
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side - Text content */}
-          <motion.div 
-            className="space-y-10 lg:pr-8"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="space-y-8">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <motion.div
-                  className="status-pill status-available mb-6"
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                >
-                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                  <span className="text-sm font-medium">Open to work</span>
-                </motion.div>
-                
-                <div className="mb-8">
-                  <p className="text-primary text-lg font-semibold tracking-wide uppercase mb-4">
-                    SOFTWARE DEVELOPER
+          <div className="space-y-8 lg:pr-8">
+            <div className="space-y-6">
+              <div>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold gradient-text-blue mb-6 leading-tight">
+                  Hi, I'm<br/><span className="gradient-text-blue">Saikumar B</span>
+                </h1>
+
+                <div className="h-12 flex items-center mb-6">
+                  <p className="text-xl sm:text-2xl lg:text-3xl text-blue-800 font-medium">
+                    {displayText}
+                    <span className="animate-pulse text-blue-600">|</span>
                   </p>
-                  <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight text-white">
-                    Saikumar B
-                  </h1>
                 </div>
+              </div>
 
-                <div className="h-16 flex items-center mb-8">
-                  <motion.p 
-                    className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground/80"
-                    key={displayText}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={displayText}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {displayText}
-                      </motion.span>
-                    </AnimatePresence>
-                    <motion.span 
-                      className="text-primary ml-1"
-                      animate={{ opacity: [0, 1, 0] }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    >
-                      |
-                    </motion.span>
-                  </motion.p>
-                </div>
-              </motion.div>
-
-              {/* Contact Info Display */}
-              <motion.div 
-                className="space-y-4 text-white/80"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <span>s27k02b2003@gmail.com</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Linkedin className="w-5 h-5 text-primary" />
-                  <span>linkedin.com/in/bendisaikumar</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Github className="w-5 h-5 text-primary" />
-                  <span>github.com/bskumar509</span>
-                </div>
-              </motion.div>
+              <p className="text-lg lg:text-xl text-blue-800 leading-relaxed max-w-xl">
+                Passionate Computer Science & Engineering graduate with a strong foundation in software development 
+                and a commitment to solving real-world problems through innovative technology solutions.
+              </p>
             </div>
 
-            {/* CTA Button */}
-            <motion.div 
-              className="pt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <Button
+                onClick={() => scrollToSection("contact")}
+                size="lg"
+                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white border-0 px-8 py-4 text-lg transition-all duration-300 shadow-blue"
               >
-                <a
-                  href="https://drive.google.com/file/d/1yoW4SUCpE5364VpQPtSgG42ateSBpEtk/view?usp=drive_link"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Mail className="w-5 h-5 mr-2" />
+                Get In Touch
+              </Button>
+              
+              <a
+                href="https://drive.google.com/file/d/1yoW4SUCpE5364VpQPtSgG42ateSBpEtk/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-blue-500 text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg transition-all duration-300 shadow-blue"
                 >
-                  <Button
-                    size="lg"
-                    className="bg-primary hover:bg-primary-dark text-background px-8 py-6 text-lg font-semibold transition-all duration-300 rounded-full"
-                  >
-                    Download CV
-                  </Button>
-                </a>
-              </motion.div>
-            </motion.div>
-
-          </motion.div>
-
-          {/* Right side - Silhouette */}
-          <motion.div 
-            className="flex justify-center lg:justify-end"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <div className="relative">
-              {/* Silhouette container */}
-              <motion.div 
-                className="relative w-80 h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] z-10"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.img
-                  src="/lovable-uploads/647dddde-46c8-450b-b22f-5be24df4c43c.png"
-                  alt="Saikumar B - Professional Portfolio"
-                  className="w-full h-full object-cover filter brightness-0 opacity-70"
-                  initial={{ scale: 1.1 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                />
-              </motion.div>
+                  <Download className="w-5 h-5 mr-2" />
+                  Download Resume
+                </Button>
+              </a>
             </div>
-          </motion.div>
+
+            {/* Social Links */}
+            <div className="flex space-x-6 pt-4">
+              <a
+                href="https://github.com/bskumar509"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-white shadow-blue text-blue-600 hover:shadow-blue-lg transition-all duration-300"
+              >
+                <Github className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/bendisaikumar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-white shadow-blue text-blue-600 hover:shadow-blue-lg transition-all duration-300"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a
+                href="mailto:s27k02b2003@gmail.com"
+                className="p-3 rounded-full bg-white shadow-blue text-blue-600 hover:shadow-blue-lg transition-all duration-300"
+              >
+                <Mail className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right side - Profile photo */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              {/* Animated background layers */}
+              <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-30 blur-2xl animate-pulse"></div>
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyan-300 to-blue-300 opacity-20 blur-xl animate-[spin_20s_linear_infinite]"></div>
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-200 to-cyan-200 opacity-25 blur-lg animate-[ping_3s_ease-in-out_infinite]"></div>
+              
+              {/* Profile photo */}
+              <div className="relative w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-blue-500 shadow-blue-lg z-10">
+                <img
+                  src="/lovable-uploads/647dddde-46c8-450b-b22f-5be24df4c43c.png"
+                  alt="Profilephoto"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <button
+            onClick={() => scrollToSection("about")}
+            className="p-2 rounded-full bg-white shadow-blue-lg text-blue-600 hover:shadow-blue transition-all duration-300"
+          >
+            <ArrowDown className="w-6 h-6" />
+          </button>
+        </div>
       </div>
     </section>
   );
