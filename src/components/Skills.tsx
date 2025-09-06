@@ -81,31 +81,32 @@ export const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-surface via-surface-dark to-surface-darker relative overflow-hidden">
-      <div className="absolute inset-0 animated-gradient opacity-30"></div>
+    <section id="skills" className="py-20 bg-gradient-to-b from-transparent to-black/30 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={skillsRef}>
         <AnimatedSection className="text-center mb-16">
-          <motion.h2 
-            className="text-3xl sm:text-4xl font-bold text-gradient-primary mb-4"
+          <motion.p 
+            className="text-primary text-lg font-semibold tracking-wide uppercase mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Skills & Expertise
+            SKILLS
+          </motion.p>
+          <motion.h2 
+            className="text-3xl sm:text-4xl font-bold text-white mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Technical Expertise
           </motion.h2>
-          <motion.div 
-            className="w-20 h-1 bg-gradient-primary mx-auto mb-6"
-            initial={{ width: 0 }}
-            animate={{ width: 80 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          ></motion.div>
           <motion.p 
-            className="text-xl text-foreground-muted max-w-3xl mx-auto"
+            className="text-xl text-white/80 max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Technical skills and competencies developed through education and practical experience
+            Core competencies and technical skills developed through education and practice
           </motion.p>
         </AnimatedSection>
 
@@ -120,9 +121,9 @@ export const Skills = () => {
               whileHover={{ scale: 1.02, y: -4 }}
               className="group"
             >
-              <Card className="glass-card hover:shadow-glow transition-all duration-300 border-border-subtle hover:border-accent">
+              <Card className="bg-white/5 backdrop-blur-xl border border-white/20 hover:border-primary/50 hover:shadow-glow transition-all duration-300">
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-lg font-bold text-gradient-primary flex items-center group-hover:scale-105 transition-transform duration-300">
+                  <CardTitle className="text-lg font-bold text-primary flex items-center group-hover:scale-105 transition-transform duration-300">
                     <motion.span 
                       className="text-2xl mr-2"
                       whileHover={{ rotate: 10, scale: 1.2 }}
@@ -138,12 +139,12 @@ export const Skills = () => {
                     {category.skills.map((skill, idx) => (
                       <div key={idx} className="space-y-2">
                         <div className="flex justify-between items-center">
-                          <span className="text-foreground font-medium text-sm">{skill.name}</span>
+                          <span className="text-white font-medium text-sm">{skill.name}</span>
                           <Badge className={`text-xs px-2 py-1 ${getLevelColor(skill.level)}`}>
                             {skill.level}
                           </Badge>
                         </div>
-                        <div className="w-full bg-surface rounded-full h-2 overflow-hidden">
+                        <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                           <motion.div
                             className="h-full bg-gradient-primary rounded-full"
                             initial={{ width: 0 }}
@@ -166,9 +167,9 @@ export const Skills = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <Card className="glass-card border-border-subtle">
+          <Card className="bg-white/5 backdrop-blur-xl border border-white/20">
             <CardHeader>
-              <CardTitle className="text-xl font-bold text-gradient-primary flex items-center justify-center">
+              <CardTitle className="text-xl font-bold text-primary flex items-center justify-center">
                 <motion.span 
                   className="text-2xl mr-2"
                   animate={{ rotate: [0, 5, -5, 0] }}
@@ -190,9 +191,9 @@ export const Skills = () => {
                     transition={{ duration: 0.4, delay: 0.6 + (index * 0.1) }}
                     whileHover={{ scale: 1.05, y: -2 }}
                   >
-                    <div className="glass-card rounded-lg p-4 min-w-[120px] border border-border-subtle hover:border-accent transition-all duration-300">
-                      <div className="font-semibold text-gradient-primary">{language.name}</div>
-                      <div className="text-sm text-foreground-muted font-medium">{language.proficiency}</div>
+                    <div className="bg-white/10 backdrop-blur-xl rounded-lg p-4 min-w-[120px] border border-white/20 hover:border-primary/50 transition-all duration-300">
+                      <div className="font-semibold text-primary">{language.name}</div>
+                      <div className="text-sm text-white/70 font-medium">{language.proficiency}</div>
                     </div>
                   </motion.div>
                 ))}

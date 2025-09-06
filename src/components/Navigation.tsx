@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Briefcase, Code, GraduationCap, Mail } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, Code, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 

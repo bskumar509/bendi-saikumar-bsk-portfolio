@@ -12,15 +12,12 @@ import profilePhoto from '@/src/saikumar.jpg';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-gradient-hero text-foreground">
       <Navigation />
       <Hero />
       <About />
       <Experience />
-      <Projects />
       <Skills />
-      <Education />
-      <Certifications />
       <Contact />
     </div>
   );
