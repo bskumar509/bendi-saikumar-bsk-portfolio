@@ -36,9 +36,9 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden">
-      {/* Animated Background */}
-      <AnimatedBackground variant="gradient" className="absolute inset-0" />
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
+      {/* Silhouette overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/30" />
       
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -79,20 +79,23 @@ export const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <motion.div
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6"
+                  className="status-pill status-available mb-6"
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
                 >
-                  <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-foreground">Available for opportunities</span>
+                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+                  <span className="text-sm font-medium">Open to work</span>
                 </motion.div>
                 
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-8">
-                  <span className="text-foreground">Hi, I'm</span>
-                  <br />
-                  <span className="text-gradient-primary">Saikumar B</span>
-                </h1>
+                <div className="mb-8">
+                  <p className="text-primary text-lg font-semibold tracking-wide uppercase mb-4">
+                    SOFTWARE DEVELOPER
+                  </p>
+                  <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight text-white">
+                    Saikumar B
+                  </h1>
+                </div>
 
                 <div className="h-16 flex items-center mb-8">
                   <motion.p 
@@ -124,38 +127,35 @@ export const Hero = () => {
                 </div>
               </motion.div>
 
-              <motion.p 
-                className="text-xl lg:text-2xl text-foreground/70 leading-relaxed max-w-2xl font-light"
+              {/* Contact Info Display */}
+              <motion.div 
+                className="space-y-4 text-white/80"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                Passionate Computer Science & Engineering graduate crafting innovative solutions 
-                and pushing the boundaries of technology to solve real-world challenges.
-              </motion.p>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-primary" />
+                  <span>s27k02b2003@gmail.com</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Linkedin className="w-5 h-5 text-primary" />
+                  <span>linkedin.com/in/bendisaikumar</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Github className="w-5 h-5 text-primary" />
+                  <span>github.com/bskumar509</span>
+                </div>
+              </motion.div>
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-6 items-start"
+              className="pt-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  onClick={() => scrollToSection("contact")}
-                  size="lg"
-                  className="bg-gradient-primary hover:shadow-glow-lg text-white border-0 px-10 py-6 text-lg font-semibold transition-all duration-300 rounded-xl"
-                >
-                  <Mail className="w-5 h-5 mr-3" />
-                  Get In Touch
-                </Button>
-              </motion.div>
-              
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -166,48 +166,18 @@ export const Hero = () => {
                   rel="noopener noreferrer"
                 >
                   <Button
-                    variant="outline"
                     size="lg"
-                    className="glass-card hover:border-primary/50 text-foreground px-10 py-6 text-lg font-semibold transition-all duration-300 rounded-xl hover-glow"
+                    className="bg-primary hover:bg-primary-dark text-background px-8 py-6 text-lg font-semibold transition-all duration-300 rounded-full"
                   >
-                    <Download className="w-5 h-5 mr-3" />
-                    Download Resume
+                    Download CV
                   </Button>
                 </a>
               </motion.div>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div 
-              className="flex space-x-6 pt-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              {[
-                { href: "https://github.com/bskumar509", icon: Github, label: "GitHub" },
-                { href: "https://www.linkedin.com/in/bendisaikumar/", icon: Linkedin, label: "LinkedIn" },
-                { href: "mailto:s27k02b2003@gmail.com", icon: Mail, label: "Email" }
-              ].map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-4 rounded-2xl glass-card hover:border-primary/50 text-foreground hover-glow transition-all duration-300 group"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.2 + (index * 0.1) }}
-                >
-                  <social.icon className="w-6 h-6 group-hover:text-primary transition-colors duration-300" />
-                </motion.a>
-              ))}
-            </motion.div>
           </motion.div>
 
-          {/* Right side - Profile photo */}
+          {/* Right side - Silhouette */}
           <motion.div 
             className="flex justify-center lg:justify-end"
             initial={{ opacity: 0, x: 50 }}
@@ -215,83 +185,25 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div className="relative">
-              {/* Animated background effects */}
+              {/* Silhouette container */}
               <motion.div 
-                className="absolute -inset-12 rounded-full bg-gradient-primary opacity-20 blur-3xl"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
-              <motion.div 
-                className="absolute -inset-8 rounded-full bg-gradient-accent opacity-30 blur-2xl"
-                animate={{
-                  scale: [1.1, 1, 1.1],
-                  rotate: [360, 180, 0],
-                }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
-              <motion.div 
-                className="absolute -inset-4 rounded-full bg-primary/10 blur-xl animate-pulse"
-                animate={{
-                  opacity: [0.1, 0.3, 0.1],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-              
-              {/* Profile photo container */}
-              <motion.div 
-                className="relative w-80 h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] rounded-3xl overflow-hidden border-2 border-primary/20 shadow-glow-lg z-10 glass-card"
+                className="relative w-80 h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] z-10"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 <motion.img
                   src="/lovable-uploads/647dddde-46c8-450b-b22f-5be24df4c43c.png"
                   alt="Saikumar B - Professional Portfolio"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover filter brightness-0 opacity-70"
                   initial={{ scale: 1.1 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
                 />
-                
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
               </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Enhanced Scroll indicator */}
-        <motion.div 
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-        >
-          <motion.button
-            onClick={() => scrollToSection("about")}
-            className="p-4 rounded-2xl glass-card hover:border-primary/50 text-foreground hover-glow transition-all duration-300 group"
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <ArrowDown className="w-6 h-6 group-hover:text-primary transition-colors duration-300" />
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

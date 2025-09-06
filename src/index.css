@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    /* Core Colors */
+    /* Core Colors - Dark gradient like reference */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     
@@ -16,18 +16,18 @@
     --surface-light: 240 5% 6%;
     --surface-dark: 240 15% 2%;
     
-    /* Brand Colors */
-    --primary: 217 91% 60%;
-    --primary-light: 217 91% 70%;
-    --primary-dark: 217 91% 50%;
-    --primary-foreground: 0 0% 98%;
+    /* Brand Colors - Inspired by reference */
+    --primary: 45 100% 51%;  /* Golden yellow like reference */
+    --primary-light: 45 100% 61%;
+    --primary-dark: 45 100% 41%;
+    --primary-foreground: 240 10% 3.9%;
     
-    --secondary: 270 95% 75%;
-    --secondary-light: 270 95% 85%;
-    --secondary-dark: 270 95% 65%;
-    --secondary-foreground: 240 10% 3.9%;
+    --secondary: 24 95% 53%;  /* Orange like reference */
+    --secondary-light: 24 95% 63%;
+    --secondary-dark: 24 95% 43%;
+    --secondary-foreground: 0 0% 98%;
     
-    --accent: 142 76% 36%;
+    --accent: 142 76% 36%;  /* Green for status */
     --accent-light: 142 76% 46%;
     --accent-dark: 142 76% 26%;
     --accent-foreground: 0 0% 98%;
@@ -77,10 +77,11 @@
     --glass-background: 240 10% 3.9% / 0.8;
     --glass-border: 0 0% 100% / 0.1;
     
-    /* Gradients */
+    /* Gradients - Reference style */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
     --gradient-surface: linear-gradient(135deg, hsl(var(--surface-light)) 0%, hsl(var(--surface-dark)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(24 95% 15%) 50%, hsl(24 95% 25%) 100%);
     
     /* Shadows */
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -180,6 +181,37 @@
     background: linear-gradient(-45deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)), hsl(var(--primary-light)));
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  /* Status Pills */
+  .status-pill {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+  }
+  
+  .status-available {
+    @apply bg-accent/20 text-accent border border-accent/30;
+  }
+  
+  /* Navigation Pills */
+  .nav-pill {
+    @apply px-6 py-3 rounded-full backdrop-blur-xl border transition-all duration-300;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .nav-pill:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .nav-pill.active {
+    background: rgba(255, 255, 255, 0.9);
+    color: hsl(var(--background));
+    border-color: rgba(255, 255, 255, 0.9);
   }
   
   /* Text Gradients */
