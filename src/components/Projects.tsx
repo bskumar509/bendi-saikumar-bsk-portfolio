@@ -36,46 +36,48 @@ export const Projects = () => {
       status: "In Development"
     },
     {
-      title: "E-Commerce Web Application",
-      company: "Academic Project",
-      description: "Full-stack e-commerce platform with user authentication, product management, shopping cart, and payment integration.",
+      title: "Mayamakers Web Design",
+      company: "Client Project",
+      description: "Modern, responsive website design and development for Mayamakers, featuring clean aesthetics and user-friendly navigation.",
       achievements: [
-        "Implemented secure payment gateway integration",
-        "Built responsive UI with real-time inventory updates",
-        "Achieved 95% code coverage with automated testing"
+        "Designed and developed fully responsive website",
+        "Implemented modern UI/UX principles",
+        "Optimized for performance and SEO"
       ],
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe API", "JWT Authentication"],
-      github: "https://github.com/bskumar509/ecommerce-platform",
+      technologies: ["React", "Tailwind CSS", "TypeScript", "Responsive Design"],
+      github: "https://github.com/bskumar509/mayamakers-website",
+      live: "https://mayamakers.com",
       period: "2024",
       status: "Completed"
     },
     {
-      title: "Machine Learning Image Classifier",
-      company: "Academic Project",
-      description: "Deep learning model for multi-class image classification using convolutional neural networks with transfer learning.",
+      title: "CCA Edu Tech Platform",
+      company: "Educational Project",
+      description: "Comprehensive educational technology platform for CCA with interactive learning modules and student management features.",
       achievements: [
-        "Achieved 92% accuracy on test dataset",
-        "Implemented data augmentation techniques",
-        "Optimized model for real-time inference"
+        "Built scalable learning management system",
+        "Integrated interactive course modules",
+        "Implemented student progress tracking"
       ],
-      technologies: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy", "Pandas"],
-      github: "https://github.com/bskumar509/ml-image-classifier",
-      period: "2023-2024",
-      status: "Completed"
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Educational APIs"],
+      github: "https://github.com/bskumar509/cca-edutech",
+      live: "https://cca-edutech.web.app",
+      period: "2024-2025",
+      status: "In Development"
     },
     {
-      title: "Task Management System",
+      title: "Portfolio Website",
       company: "Personal Project",
-      description: "Collaborative task management application with real-time updates, team collaboration features, and project tracking.",
+      description: "Modern portfolio website showcasing projects, skills, and professional experience with responsive design and smooth animations.",
       achievements: [
-        "Implemented real-time synchronization using WebSockets",
-        "Built role-based access control system",
-        "Integrated email notifications and reminders"
+        "Created responsive single-page application",
+        "Implemented smooth scroll animations",
+        "Optimized for performance and accessibility"
       ],
-      technologies: ["React", "Firebase", "Material-UI", "WebSockets", "Cloud Functions"],
-      github: "https://github.com/bskumar509/task-manager",
-      live: "https://task-manager-demo.web.app",
-      period: "2023",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Lucide Icons"],
+      github: "https://github.com/bskumar509/portfolio",
+      live: "https://saikumar-portfolio.web.app",
+      period: "2025",
       status: "Completed"
     }
   ];
@@ -101,62 +103,62 @@ export const Projects = () => {
                 <div className="absolute left-6 top-6 w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
                 
                 {/* Card */}
-                <Card className="shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200">
-                  <CardHeader className="pb-3">
-                    <div className="flex justify-between items-start mb-2">
-                      <Badge className="bg-blue-100 text-blue-700 border-0 hover:bg-blue-100">
+                <Card className="shadow-md hover:shadow-lg transition-all duration-300 border border-slate-200">
+                  <CardHeader className="pb-2 p-4">
+                    <div className="flex justify-between items-start mb-1">
+                      <Badge className="bg-blue-100 text-blue-700 border-0 hover:bg-blue-100 text-[10px] px-2 py-0.5">
                         {work.company}
                       </Badge>
-                      <div className="flex items-center text-slate-600 text-sm">
-                        <Calendar className="w-4 h-4 mr-1" />
+                      <div className="flex items-center text-slate-600 text-xs">
+                        <Calendar className="w-3 h-3 mr-1" />
                         {work.period}
                       </div>
                     </div>
                     
-                    <CardTitle className="text-lg font-bold text-slate-900 mb-2">
+                    <CardTitle className="text-base font-bold text-slate-900 mb-1">
                       {work.title}
                     </CardTitle>
                     
-                    <p className="text-slate-600 text-sm">
+                    <p className="text-slate-600 text-xs leading-relaxed">
                       {work.description}
                     </p>
                   </CardHeader>
                   
-                  <CardContent className="pt-0 space-y-3">
+                  <CardContent className="pt-0 p-4 space-y-2">
                     <div>
-                      <h4 className="font-semibold text-slate-900 mb-2 text-sm">Key Achievements:</h4>
-                      <ul className="space-y-1">
+                      <h4 className="font-semibold text-slate-900 mb-1 text-xs">Key Achievements:</h4>
+                      <ul className="space-y-0.5">
                         {work.achievements.map((achievement, idx) => (
-                          <li key={idx} className="flex items-start text-sm">
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span className="text-slate-600 text-xs">{achievement}</span>
+                          <li key={idx} className="flex items-start text-xs">
+                            <div className="w-1 h-1 bg-blue-600 rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
+                            <span className="text-slate-600 text-[11px] leading-relaxed">{achievement}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     
                     <div>
-                      <h4 className="font-semibold text-slate-900 mb-2 text-sm">Technologies:</h4>
+                      <h4 className="font-semibold text-slate-900 mb-1 text-xs">Technologies:</h4>
                       <div className="flex flex-wrap gap-1">
                         {work.technologies.map((tech, idx) => (
-                          <Badge key={idx} className="text-xs px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200">
+                          <Badge key={idx} className="text-[10px] px-1.5 py-0 bg-slate-100 text-slate-700 border border-slate-200">
                             {tech}
                           </Badge>
                         ))}
                       </div>
                     </div>
                     
-                    <div className="flex gap-2 pt-2">
-                      <Button asChild size="sm" variant="outline" className="flex-1">
+                    <div className="flex gap-2 pt-1">
+                      <Button asChild size="sm" variant="outline" className="flex-1 h-7 text-xs">
                         <a href={work.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4 mr-1" />
+                          <Github className="w-3 h-3 mr-1" />
                           Code
                         </a>
                       </Button>
                       {work.live && (
-                        <Button asChild size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
+                        <Button asChild size="sm" className="flex-1 h-7 text-xs bg-blue-600 hover:bg-blue-700 text-white">
                           <a href={work.live} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4 mr-1" />
+                            <ExternalLink className="w-3 h-3 mr-1" />
                             Live
                           </a>
                         </Button>
