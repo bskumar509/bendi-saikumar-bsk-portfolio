@@ -34,6 +34,49 @@ export const Projects = () => {
       live: "https://lovable.dev/projects/97b1f49c-e129-4572-bdb7-62782ae8792d",
       period: "2025",
       status: "In Development"
+    },
+    {
+      title: "E-Commerce Web Application",
+      company: "Academic Project",
+      description: "Full-stack e-commerce platform with user authentication, product management, shopping cart, and payment integration.",
+      achievements: [
+        "Implemented secure payment gateway integration",
+        "Built responsive UI with real-time inventory updates",
+        "Achieved 95% code coverage with automated testing"
+      ],
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe API", "JWT Authentication"],
+      github: "https://github.com/bskumar509/ecommerce-platform",
+      period: "2024",
+      status: "Completed"
+    },
+    {
+      title: "Machine Learning Image Classifier",
+      company: "Academic Project",
+      description: "Deep learning model for multi-class image classification using convolutional neural networks with transfer learning.",
+      achievements: [
+        "Achieved 92% accuracy on test dataset",
+        "Implemented data augmentation techniques",
+        "Optimized model for real-time inference"
+      ],
+      technologies: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy", "Pandas"],
+      github: "https://github.com/bskumar509/ml-image-classifier",
+      period: "2023-2024",
+      status: "Completed"
+    },
+    {
+      title: "Task Management System",
+      company: "Personal Project",
+      description: "Collaborative task management application with real-time updates, team collaboration features, and project tracking.",
+      achievements: [
+        "Implemented real-time synchronization using WebSockets",
+        "Built role-based access control system",
+        "Integrated email notifications and reminders"
+      ],
+      technologies: ["React", "Firebase", "Material-UI", "WebSockets", "Cloud Functions"],
+      github: "https://github.com/bskumar509/task-manager",
+      live: "https://task-manager-demo.web.app",
+      period: "2023",
+      status: "Completed"
     }
   ];
 
