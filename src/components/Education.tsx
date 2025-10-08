@@ -46,7 +46,7 @@ export const Education = () => {
   return (
     <section id="education" className="py-20 gradient-blue-light">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold gradient-text-blue mb-4">
             Education
           </h2>
@@ -56,28 +56,26 @@ export const Education = () => {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {educationData.map((education, index) => (
-            <Card key={index} className="shadow-blue-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-l-blue-500 gradient-blue-card border-0 backdrop-blur-sm">
-              <CardHeader className="pb-4">
-                <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
-                  <div className="flex-1">
-                    <CardTitle className="text-xl font-bold gradient-text-blue mb-2">
-                      {education.degree}
-                    </CardTitle>
-                    <p className="text-lg text-blue-600 font-semibold mb-1">
-                      {education.field}
-                    </p>
-                    <p className="text-blue-800 font-medium mb-2">
-                      {education.institution}
-                    </p>
-                    <p className="text-blue-700 text-sm">
-                      {education.location}
-                    </p>
-                  </div>
+            <Card key={index} className="shadow-lg hover:shadow-xl transition-all duration-300 border-0 gradient-blue-card backdrop-blur-sm">
+              <CardHeader>
+                <div className="text-center space-y-3">
+                  <CardTitle className="text-lg font-bold gradient-text-blue">
+                    {education.degree}
+                  </CardTitle>
+                  <p className="text-sm text-blue-600 font-semibold">
+                    {education.field}
+                  </p>
+                  <p className="text-blue-800 font-medium text-sm">
+                    {education.institution}
+                  </p>
+                  <p className="text-blue-700 text-xs">
+                    {education.location}
+                  </p>
                   
-                  <div className="flex flex-col lg:items-end space-y-2 mt-4 lg:mt-0">
-                    <div className="flex items-center text-blue-700">
+                  <div className="flex flex-col items-center space-y-2 pt-2">
+                    <div className="flex items-center text-blue-700 text-sm">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span className="font-medium">{education.period}</span>
                     </div>
@@ -88,20 +86,6 @@ export const Education = () => {
                   </div>
                 </div>
               </CardHeader>
-              
-              <CardContent>
-                <div>
-                  <h4 className="font-semibold gradient-text-blue mb-3">Key Highlights:</h4>
-                  <ul className="space-y-2">
-                    {education.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-blue-800">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
             </Card>
           ))}
         </div>
