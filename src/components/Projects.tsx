@@ -83,7 +83,7 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section id="projects" className="py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-slate-900 mb-2">
@@ -100,13 +100,13 @@ export const Projects = () => {
             {workHistory.map((work, index) => (
               <div key={index} className="relative pl-20">
                 {/* Timeline dot */}
-                <div className="absolute left-6 top-6 w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
+                <div className="absolute left-6 top-6 w-5 h-5 bg-primary rounded-full border-4 border-background shadow-lg"></div>
                 
                 {/* Card */}
-                <Card className="shadow-md hover:shadow-lg transition-all duration-300 border border-slate-200">
+                <Card className="glass-card shadow-md hover:shadow-lg transition-all duration-300">
                   <CardHeader className="pb-2 p-4">
                     <div className="flex justify-between items-start mb-1">
-                      <Badge className="bg-blue-100 text-blue-700 border-0 hover:bg-blue-100 text-[10px] px-2 py-0.5">
+                      <Badge className="bg-primary/15 text-primary border border-primary/20 hover:bg-primary/20 text-[10px] px-2 py-0.5">
                         {work.company}
                       </Badge>
                       <div className="flex items-center text-slate-600 text-xs">
@@ -141,7 +141,7 @@ export const Projects = () => {
                       <h4 className="font-semibold text-slate-900 mb-1 text-xs">Technologies:</h4>
                       <div className="flex flex-wrap gap-1">
                         {work.technologies.map((tech, idx) => (
-                          <Badge key={idx} className="text-[10px] px-1.5 py-0 bg-slate-100 text-slate-700 border border-slate-200">
+                          <Badge key={idx} className="text-[10px] px-1.5 py-0 bg-primary/10 text-foreground border border-primary/20">
                             {tech}
                           </Badge>
                         ))}
