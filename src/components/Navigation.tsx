@@ -45,7 +45,7 @@ export const Navigation = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-blue-200/30 shadow-blue">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-primary/20 shadow-blue">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
@@ -61,8 +61,8 @@ export const Navigation = () => {
                   onClick={() => scrollToSection(item.href)}
                   className={`px-3 py-2 text-sm font-medium transition-all duration-200 ${
                     activeSection === item.href.substring(1)
-                      ? 'text-blue-600 border-b-2 border-blue-600 bg-white/10 backdrop-blur-sm rounded-t-lg'
-                      : 'text-blue-800 hover:text-blue-600 hover:bg-white/5 rounded-lg'
+                      ? 'text-primary border-b-2 border-primary bg-primary/10 backdrop-blur-sm rounded-t-lg'
+                      : 'text-foreground hover:text-primary hover:bg-primary/10 rounded-lg'
                   }`}
                 >
                   {item.label}
@@ -77,7 +77,7 @@ export const Navigation = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-blue-800 hover:bg-white/10 backdrop-blur-sm"
+              className="text-foreground hover:bg-primary/10 backdrop-blur-sm"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -87,15 +87,15 @@ export const Navigation = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/10 backdrop-blur-md border-t border-blue-200/30 rounded-b-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/90 backdrop-blur-xl border-t border-primary/20 rounded-b-lg">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   className={`block px-3 py-2 text-base font-medium w-full text-left transition-all duration-200 rounded-lg ${
                     activeSection === item.href.substring(1)
-                      ? 'text-blue-600 bg-gradient-to-r from-blue-100/50 to-blue-200/50 backdrop-blur-sm'
-                      : 'text-blue-800 hover:text-blue-600 hover:bg-white/10'
+                      ? 'text-primary bg-primary/15 backdrop-blur-sm'
+                      : 'text-foreground hover:text-primary hover:bg-primary/10'
                   }`}
                 >
                   {item.label}

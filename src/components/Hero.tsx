@@ -120,12 +120,12 @@ export const Hero = () => {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               {/* Animated background layers */}
-              <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-30 blur-2xl animate-pulse"></div>
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyan-300 to-blue-300 opacity-20 blur-xl animate-[spin_20s_linear_infinite]"></div>
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-200 to-cyan-200 opacity-25 blur-lg animate-[ping_3s_ease-in-out_infinite]"></div>
+              <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-primary/40 to-background/30 opacity-60 blur-2xl animate-pulse"></div>
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/35 to-background/40 opacity-50 blur-xl animate-[spin_20s_linear_infinite]"></div>
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-primary/25 to-background/35 opacity-60 blur-lg animate-[ping_3s_ease-in-out_infinite]"></div>
               
               {/* Profile photo */}
-              <div className="relative w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-blue-500 shadow-blue-lg z-10">
+              <div className="relative w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-primary/70 shadow-blue-lg z-10">
                 <img
                   src="/lovable-uploads/647dddde-46c8-450b-b22f-5be24df4c43c.png"
                   alt="Profilephoto"
